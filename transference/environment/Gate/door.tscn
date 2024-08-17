@@ -25,10 +25,12 @@ size = Vector2(16, 16)
 script = ExtResource("1_dxkls")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_fdmxh")
 animation = &"open"
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+texture_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_jrk4s")

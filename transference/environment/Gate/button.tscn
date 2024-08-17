@@ -35,6 +35,7 @@ rotation = 3.14159
 scale = Vector2(0.09, 0.09)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_up6h4")
 animation = &"depressed"
 frame = 1

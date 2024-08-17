@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c38aje76hvts1"
-path="res://.godot/imported/fox.png-cf7178e9cdca573ea67d70574c49a67f.ctex"
+uid="uid://dfw332cpftixw"
+path="res://.godot/imported/fox3.png-641d620a5cd007751b4c0b019e837635.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://transference/characters/players/sprites/fox.png"
-dest_files=["res://.godot/imported/fox.png-cf7178e9cdca573ea67d70574c49a67f.ctex"]
+source_file="res://transference/characters/players/sprites/fox3.png"
+dest_files=["res://.godot/imported/fox3.png-641d620a5cd007751b4c0b019e837635.ctex"]
 
 [params]
 
