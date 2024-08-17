@@ -33,7 +33,7 @@ var can_double_jump : bool = true
 var swap_cooldown = 0
 
 func _ready():
-	_animated_sprite.play("walk_p" + str(player_num))
+	_animated_sprite.play("idle_p" + str(player_num))
 	_animated_sprite.flip_h = true
 	_animated_sprite.stop()
 	
@@ -117,7 +117,7 @@ func set_facing():
 		_animated_sprite.play("walk_p" + str(player_num))
 		_animated_sprite.flip_h = true
 	else:
-		_animated_sprite.stop()
+		_animated_sprite.play("idle_p" + str(player_num))
 		
 	if not grounded():
 		_animated_sprite.frame = 1
