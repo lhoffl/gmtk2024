@@ -98,6 +98,7 @@ func get_input(delta):
 	if Input.is_action_just_released("swapBuddies"):
 		if(buddy.can_swap()):
 			player_controlled = false
+			_character_body.velocity.x = 0.1
 			swap_cooldown = 0.1
 			buddy.player_controlled = true
 		
@@ -109,6 +110,7 @@ func grounded() -> bool:
 
 func set_facing():
 	if not player_controlled:
+		_animated_sprite.stop()
 		return
 	
 	if Input.is_action_pressed("player1_left"):
