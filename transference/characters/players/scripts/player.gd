@@ -65,8 +65,6 @@ func get_input(delta):
 	if not player_controlled:
 		return
 	
-	print(player_num)
-	
 	var clampedSpeed = clampf(speed * 1/mass, 0, max_speed)
 	if Input.is_action_pressed("player1_left"):
 		_character_body.velocity.x = lerp(_character_body.velocity.x, -1 * clampedSpeed, delta * 0.5)
@@ -98,7 +96,6 @@ func get_input(delta):
 	if Input.is_action_just_released("swapBuddies"):
 		if(buddy.can_swap()):
 			player_controlled = false
-			_character_body.velocity.x = 0.1
 			swap_cooldown = 0.1
 			buddy.player_controlled = true
 		
@@ -128,8 +125,8 @@ func set_facing():
 func change_mass(amount):
 	
 	# NOTE: could be fun to change mass in air but it currently allows you to break through the floor so leave disable for now
-	#if !grounded() || !buddy.grounded():
-	#	return
+	if !grounded() || !buddy.grounded():
+		return
 	mass = clamp((mass + amount), 0.3, 1.9)
 	_character_body.scale = Vector2(mass, mass)
 	

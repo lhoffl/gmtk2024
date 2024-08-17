@@ -1,22 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmco0r6j6pdwr"]
+[gd_scene load_steps=6 format=3 uid="uid://cmco0r6j6pdwr"]
 
 [ext_resource type="Script" path="res://transference/characters/players/scripts/player.gd" id="1_7f2m8"]
-[ext_resource type="Texture2D" uid="uid://c5m0oxsxx2k3m" path="res://transference/characters/players/sprites/player1_walk_001.png" id="2_konmc"]
-[ext_resource type="Texture2D" uid="uid://ldt061pcjfba" path="res://transference/characters/players/sprites/player1_walk_002.png" id="3_6hv6m"]
-[ext_resource type="Texture2D" uid="uid://oa2k3su0ctee" path="res://transference/characters/players/sprites/player2_walk_001.png" id="4_vvhor"]
-[ext_resource type="Texture2D" uid="uid://da8ky1rnigyi0" path="res://transference/characters/players/sprites/player2_walk_002.png" id="5_badrj"]
+[ext_resource type="Texture2D" uid="uid://c38aje76hvts1" path="res://transference/characters/players/sprites/fox.png" id="2_upc32"]
+[ext_resource type="Texture2D" uid="uid://b24d1vfhoo0wi" path="res://transference/characters/players/sprites/capy.png" id="3_b8bey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj1pj"]
-size = Vector2(20, 23)
+size = Vector2(15, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jfxdo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_konmc")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_6hv6m")
+"texture": ExtResource("2_upc32")
 }],
 "loop": true,
 "name": &"walk_p1",
@@ -24,10 +19,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_vvhor")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_badrj")
+"texture": ExtResource("3_b8bey")
 }],
 "loop": true,
 "name": &"walk_p2",
@@ -43,7 +35,7 @@ jump_time_to_fall = 0.3
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 1)
+position = Vector2(-1, 4)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_mj1pj")
 
@@ -51,8 +43,7 @@ shape = SubResource("RectangleShape2D_mj1pj")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jfxdo")
-animation = &"walk_p1"
-frame_progress = 0.689012
+animation = &"walk_p2"
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="CharacterBody2D"]
 target_position = Vector2(0, -31)

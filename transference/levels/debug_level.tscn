@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://6752smm45qi6"]
+[gd_scene load_steps=11 format=4 uid="uid://6752smm45qi6"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_nxx4g"]
 [ext_resource type="Texture2D" uid="uid://dmo5jwgj3xw8" path="res://transference/world/objects/terrain/sprites/tile_0104.png" id="2_p3eit"]
 [ext_resource type="Texture2D" uid="uid://bs7cb3dlybgs7" path="res://transference/world/background/sprites/tile_0000.png" id="3_mwr48"]
-[ext_resource type="PackedScene" uid="uid://dj4d1jh8gbbgd" path="res://transference/environment/door.tscn" id="4_kmbwu"]
-[ext_resource type="PackedScene" uid="uid://c5c07wjrkmn81" path="res://transference/environment/button.tscn" id="5_htfer"]
+[ext_resource type="PackedScene" uid="uid://dj4d1jh8gbbgd" path="res://transference/environment/Gate/door.tscn" id="4_kmbwu"]
+[ext_resource type="PackedScene" uid="uid://c5c07wjrkmn81" path="res://transference/environment/Gate/button.tscn" id="5_htfer"]
+[ext_resource type="PackedScene" uid="uid://dx2w53x2mtgvt" path="res://transference/environment/Spike/spike.tscn" id="6_cs6t1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_voqf1"]
 texture = ExtResource("2_p3eit")
@@ -49,3 +50,15 @@ button = NodePath("../Node2D2")
 
 [node name="Node2D2" parent="." instance=ExtResource("5_htfer")]
 position = Vector2(720, 328)
+
+[node name="Spike" parent="." node_paths=PackedStringArray("world") instance=ExtResource("6_cs6t1")]
+position = Vector2(503, 328)
+world = NodePath("..")
+
+[node name="Spike2" parent="." node_paths=PackedStringArray("world") instance=ExtResource("6_cs6t1")]
+position = Vector2(518, 328)
+world = NodePath("..")
+
+[node name="Spike3" parent="." node_paths=PackedStringArray("world") instance=ExtResource("6_cs6t1")]
+position = Vector2(533, 328)
+world = NodePath("..")
