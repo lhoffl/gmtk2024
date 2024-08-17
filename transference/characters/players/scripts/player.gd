@@ -107,6 +107,6 @@ func change_mass(amount):
 	# NOTE: could be fun to change mass in air but it currently allows you to break through the floor so leave disable for now
 	if !grounded() || !buddy.grounded():
 		return
-	mass = clamp((mass + amount), 0.1, 1.9)
+	mass = clamp((mass + amount), 0.4, 1.9)
 	_character_body.scale = Vector2(mass, mass)
 	
