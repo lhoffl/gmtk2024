@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsxnrittrccdt"]
+
+[ext_resource type="Script" path="res://gmtk2024/lhoffl/Monkey/Monkey.gd" id="1_7p43b"]
+[ext_resource type="PackedScene" uid="uid://cmwv5jwv0ufxu" path="res://gmtk2024/lhoffl/Monkey/MonkeyState.tscn" id="2_k5orn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gnxrk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_sgnpi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cexlx"]
+transparency = 1
+albedo_color = Color(0, 0, 1, 0.145098)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_slwq6"]
+
+[node name="Monkey" type="RigidBody3D"]
+script = ExtResource("1_7p43b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_gnxrk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_sgnpi")
+surface_material_override/0 = SubResource("StandardMaterial3D_cexlx")
+
+[node name="MonkeyMesh" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_slwq6")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+top_level = true
+
+[node name="Camera3D" type="Camera3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 2.8, 3.5)
+current = true
+fov = 110.4
+
+[node name="FloorCheck" type="RayCast3D" parent="."]
+target_position = Vector3(0, -1.5, 0)
+
+[node name="CurrentMonkeyState" parent="." instance=ExtResource("2_k5orn")]
+
+[node name="SmolState" parent="." instance=ExtResource("2_k5orn")]
+speed = 1000.0
+gravity = 0.5
+mass = 1.0
+monkeyScale = 0.08
+jumpForce = 1.0
+
+[node name="BeegState" parent="." instance=ExtResource("2_k5orn")]
+speed = 1.0
+gravity = 1.0
+mass = 1000.0
+monkeyScale = 0.45
+jumpForce = 100.0
