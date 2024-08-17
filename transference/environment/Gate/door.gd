@@ -2,13 +2,18 @@ class_name Door
 extends Node2D
 
 @export var open : bool = false
-@export var button : DoorButton
+@export var buttons : Array[DoorButton] = []
 
 func _ready() -> void:
 	pass 
 
 func _process(delta: float) -> void:
-	if button.depressed :
+	var oneButtonDepressed = false
+	for button in buttons:
+		if button.depressed :
+			oneButtonDepressed = true
+
+	if oneButtonDepressed :
 		$AnimatedSprite2D.frame = 1
 		open = true
 		$StaticBody2D/CollisionShape2D.set_deferred("disabled", true)

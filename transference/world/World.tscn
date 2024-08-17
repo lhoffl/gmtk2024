@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwds3co0py8tn"]
+[gd_scene load_steps=5 format=3 uid="uid://cwds3co0py8tn"]
 
 [ext_resource type="Script" path="res://transference/world/World.gd" id="1_vu4eg"]
 [ext_resource type="PackedScene" uid="uid://6752smm45qi6" path="res://transference/levels/debug_level.tscn" id="2_nf326"]
+[ext_resource type="AudioStream" uid="uid://bpt7g3kc4dg03" path="res://transference/puzzlebeat.wav" id="3_i2xht"]
+[ext_resource type="Script" path="res://transference/world/music_player.gd" id="4_xeb20"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_vu4eg")
@@ -36,3 +38,8 @@ render_target_update_mode = 4
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/SubViewportContainer2/SubViewport2"]
 zoom = Vector2(2, 2)
 limit_left = 0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i2xht")
+autoplay = true
+script = ExtResource("4_xeb20")

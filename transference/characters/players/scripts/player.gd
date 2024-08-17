@@ -15,6 +15,8 @@ extends Node2D
 @export var mass_modifier = 0.7
 @export var coyote_frames = 10
 
+# @onready var indicator : Sprite2D = $CharacterBody2D/Indicator
+
 @export var player_controlled : bool = false
 
 @export var jump_height : float
@@ -39,6 +41,7 @@ func _ready():
 	
 	if player_num == 1:
 		player_controlled = true
+		#indicator.visible = true
 	
 func _physics_process(delta):
 	get_input(delta)
@@ -98,7 +101,9 @@ func get_input(delta):
 			player_controlled = false
 			swap_cooldown = 0.1
 			buddy.player_controlled = true
-		
+			#indicator.visible = false
+			##buddy.indicator.visible = true
+			
 func goodToGrow() -> bool:
 	return not (_raycast_up.is_colliding() || _raycast_left.is_colliding() || _raycast_right.is_colliding())
 
@@ -129,6 +134,7 @@ func change_mass(amount):
 		return
 	mass = clamp((mass + amount), 0.3, 1.9)
 	_character_body.scale = Vector2(mass, mass)
+	#$CharacterBody2D/Indicator.scale = Vector2(1,1);
 	
 func becomePlayerControlled():
 	player_controlled = true
