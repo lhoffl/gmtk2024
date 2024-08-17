@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwds3co0py8tn"]
+
+[ext_resource type="Script" path="res://transference/world/World.gd" id="1_vu4eg"]
+[ext_resource type="PackedScene" uid="uid://6752smm45qi6" path="res://transference/levels/debug_level.tscn" id="2_nf326"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_vu4eg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1280, 360)
+render_target_update_mode = 4
+
+[node name="DebugLevel" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_nf326")]
+
+[node name="Camera2D" type="Camera2D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
+limit_left = 0
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport2" type="SubViewport" parent="VBoxContainer/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1280, 360)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="VBoxContainer/SubViewportContainer2/SubViewport2"]
+limit_left = 0

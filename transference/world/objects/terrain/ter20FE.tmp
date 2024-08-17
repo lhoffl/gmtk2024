@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://twwa4mlkvxit"]
+
+[ext_resource type="Texture2D" uid="uid://dmo5jwgj3xw8" path="res://transference/world/objects/terrain/sprites/tile_0104.png" id="1_0oot5"]
+[ext_resource type="Script" path="res://transference/world/objects/terrain/TilemapCollisionBaker.gd" id="2_pe0j7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_voqf1"]
+texture = ExtResource("1_0oot5")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_n1bpv"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_voqf1")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TerrainTileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_n1bpv")
+format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("2_pe0j7")
+tilemap_nodepath = NodePath("../TerrainTileMap")
+run_script = true
