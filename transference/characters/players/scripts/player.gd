@@ -8,10 +8,8 @@ extends Node2D
 @onready var _raycast_left = $CharacterBody2D/RayCast2D_Left
 @onready var _raycast_right = $CharacterBody2D/RayCast2D_Right
 @export var player_num = 1
-@export var speed = 420.0
+@export var speed = 500.0
 @export var max_speed = 750
-@export var jump_speed = 1000.0
-@export var jump_frames = 10
 @export var mass = 1
 @export var mass_modifier = 0.7
 @export var coyote_frames = 10
@@ -28,12 +26,12 @@ var buddy
 var current_jump_frames = 0
 var current_coyote_frames = 0
 var coyote_active : bool = true
+var can_double_jump : bool = true
 
 func _ready():
 	_animated_sprite.play("walk_p" + str(player_num))
 	_animated_sprite.flip_h = true
 	_animated_sprite.stop()
-	print(fall_gravity)
 	
 func _physics_process(delta):
 	get_input(delta)
@@ -41,7 +39,6 @@ func _physics_process(delta):
 	_character_body.move_and_slide()
 
 func get_gravity() -> float:
-	print(mass)
 	var jumpMass = clampf(mass, 0.7, 1.5)
 	return jump_gravity * jumpMass if _character_body.velocity.y < 0.0 else fall_gravity * jumpMass
 
@@ -64,15 +61,22 @@ func get_input(delta):
 	if grounded():
 		current_coyote_frames = coyote_frames
 		coyote_active = true
+		can_double_jump = false
 	else:
 		coyote_active = false
 		
 	if coyote_active or current_coyote_frames > 0:
 		current_coyote_frames -= 1
 		
+	if can_double_jump and Input.is_action_just_pressed("player" + str(player_num) + "_jump"):
+		print("HI")
+		_character_body.velocity.y = jump_velocity
+		can_double_jump = false
+		
 	if current_coyote_frames > 0 and Input.is_action_just_pressed("player" + str(player_num) + "_jump"):
 		_character_body.velocity.y = jump_velocity
 		coyote_active = false
+		can_double_jump = true
 		current_coyote_frames = 0
 
 	if Input.is_action_pressed("player" + str(player_num) + "_mass") and goodToGrow():
@@ -99,6 +103,8 @@ func set_facing():
 		_animated_sprite.frame = 1
 		
 func change_mass(amount):
+	
+	# NOTE: could be fun to change mass in air but it currently allows you to break through the floor so leave disable for now
 	if !grounded() || !buddy.grounded():
 		return
 	mass = clamp((mass + amount), 0.1, 1.9)
