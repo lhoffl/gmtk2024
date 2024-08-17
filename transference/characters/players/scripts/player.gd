@@ -1,63 +1,89 @@
 extends Node2D
 
-
 @onready var _animated_sprite = $CharacterBody2D/AnimatedSprite2D
 @onready var _character_body = $CharacterBody2D
-@onready var _raycast_down = $CharacterBody2D/RayCast2D_Down
+@onready var _raycast_rightLegDown = $CharacterBody2D/RayCast2D_Down_RightLeg
+@onready var _raycast_leftLegDown = $CharacterBody2D/RayCast2D_Down_LeftLeg
 @onready var _raycast_up = $CharacterBody2D/RayCast2D_Up
 @onready var _raycast_left = $CharacterBody2D/RayCast2D_Left
 @onready var _raycast_right = $CharacterBody2D/RayCast2D_Right
 @export var player_num = 1
-@export var speed = 500.0
-@export var max_speed = 20000
+@export var speed = 420.0
+@export var max_speed = 750
 @export var jump_speed = 1000.0
 @export var jump_frames = 10
 @export var mass = 1
+@export var mass_modifier = 0.7
+@export var coyote_frames = 10
+
+@export var jump_height : float
+@export var jump_time_to_peak : float
+@export var jump_time_to_fall : float
+
+@onready var jump_velocity : float = ((2.0 * jump_height / jump_time_to_peak)) * -1
+@onready var jump_gravity : float = ((-2.0 * jump_height / (jump_time_to_peak * jump_time_to_peak))) * -1
+@onready var fall_gravity : float = ((-2.0 * jump_height / (jump_time_to_fall * jump_time_to_fall))) * -1
 
 var buddy
 var current_jump_frames = 0
-var gravity_magnitude : int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_coyote_frames = 0
+var coyote_active : bool = true
 
 func _ready():
 	_animated_sprite.play("walk_p" + str(player_num))
 	_animated_sprite.flip_h = true
 	_animated_sprite.stop()
+	print(fall_gravity)
 	
 func _physics_process(delta):
 	get_input(delta)
 	apply_gravity(delta)
 	_character_body.move_and_slide()
-	
+
+func get_gravity() -> float:
+	print(mass)
+	var jumpMass = clampf(mass, 0.7, 1.5)
+	return jump_gravity * jumpMass if _character_body.velocity.y < 0.0 else fall_gravity * jumpMass
+
 func apply_gravity(delta):
-	_character_body.velocity.y += gravity_magnitude * delta
+	_character_body.velocity.y += get_gravity() * delta
 	
 func _process(delta):
 	set_facing()
 	
 func get_input(delta):
+	
+	var clampedSpeed = clampf(speed * 1/mass, 0, max_speed)
 	if Input.is_action_pressed("player" + str(player_num) + "_left"):
-		_character_body.velocity.x = lerp(_character_body.velocity.x, -1 * speed * mass, delta * .5)
+		_character_body.velocity.x = lerp(_character_body.velocity.x, -1 * clampedSpeed, delta * 0.5)
 	elif Input.is_action_pressed("player" + str(player_num) + "_right"):
-		_character_body.velocity.x = lerp(_character_body.velocity.x, speed * mass, delta * .5)
+		_character_body.velocity.x = lerp(_character_body.velocity.x, clampedSpeed, delta * 0.5)
 	else:
 		_character_body.velocity.x = lerp(_character_body.velocity.x, 0.0, delta * 10)
 	
-	if _raycast_down.is_colliding():
-		if Input.is_action_just_pressed("player" + str(player_num) + "_jump"):
-			print_debug("jump")
-			current_jump_frames = jump_frames
-			
-	if current_jump_frames > 0:
-		print_debug(str(current_jump_frames) + " - " + str(_character_body.velocity.y))
-		current_jump_frames -= 1
-		_character_body.velocity.y += lerp(_character_body.velocity.y, -1 * jump_speed, delta)
-	
-	if Input.is_action_just_pressed("player" + str(player_num) + "_mass") and goodToGrow():
-		change_mass(0.1)
-		buddy.change_mass(-0.1)
+	if grounded():
+		current_coyote_frames = coyote_frames
+		coyote_active = true
+	else:
+		coyote_active = false
+		
+	if coyote_active or current_coyote_frames > 0:
+		current_coyote_frames -= 1
+		
+	if current_coyote_frames > 0 and Input.is_action_just_pressed("player" + str(player_num) + "_jump"):
+		_character_body.velocity.y = jump_velocity
+		coyote_active = false
+		current_coyote_frames = 0
+
+	if Input.is_action_pressed("player" + str(player_num) + "_mass") and goodToGrow():
+		change_mass(mass_modifier * delta)
+		buddy.change_mass(-mass_modifier * delta)
 		
 func goodToGrow() -> bool:
 	return not (_raycast_up.is_colliding() || _raycast_left.is_colliding() || _raycast_right.is_colliding())
+
+func grounded() -> bool:
+	return _raycast_leftLegDown.is_colliding() || _raycast_rightLegDown.is_colliding()
 
 func set_facing():
 	if Input.is_action_pressed("player" + str(player_num) + "_left"):
@@ -69,10 +95,12 @@ func set_facing():
 	else:
 		_animated_sprite.stop()
 		
-	if not _raycast_down.is_colliding():
+	if not grounded():
 		_animated_sprite.frame = 1
 		
 func change_mass(amount):
+	if !grounded() || !buddy.grounded():
+		return
 	mass = clamp((mass + amount), 0.1, 1.9)
 	_character_body.scale = Vector2(mass, mass)
 	
