@@ -2,7 +2,6 @@ class_name Door
 extends Node2D
 
 @export var open : bool = false
-
 @export var button : DoorButton
 
 func _ready() -> void:
