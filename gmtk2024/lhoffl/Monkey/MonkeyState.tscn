@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmwv5jwv0ufxu"]
-
-[ext_resource type="Script" path="res://gmtk2024/lhoffl/Monkey/MonkeyState.gd" id="1_f8c85"]
-
-[node name="MonkeyState" type="Node3D"]
-script = ExtResource("1_f8c85")
