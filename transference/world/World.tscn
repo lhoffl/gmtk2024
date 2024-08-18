@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwds3co0py8tn"]
+[gd_scene load_steps=4 format=3 uid="uid://cwds3co0py8tn"]
 
 [ext_resource type="Script" path="res://transference/world/World.gd" id="1_vu4eg"]
-[ext_resource type="PackedScene" uid="uid://6752smm45qi6" path="res://transference/levels/debug_level.tscn" id="2_nf326"]
 [ext_resource type="AudioStream" uid="uid://bpt7g3kc4dg03" path="res://transference/puzzlebeat.wav" id="3_i2xht"]
 [ext_resource type="Script" path="res://transference/world/music_player.gd" id="4_xeb20"]
 
@@ -20,8 +19,6 @@ layout_mode = 2
 handle_input_locally = false
 size = Vector2i(1280, 360)
 render_target_update_mode = 4
-
-[node name="DebugLevel" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_nf326")]
 
 [node name="Camera2D" type="Camera2D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
 zoom = Vector2(2, 2)
