@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://mbg4hpuqs78"]
+[gd_scene load_steps=4 format=3 uid="uid://mbg4hpuqs78"]
 
 [ext_resource type="Script" path="res://transference/environment/Tree/tree.gd" id="1_3w1xm"]
-[ext_resource type="Texture2D" uid="uid://b2obncbvyep52" path="res://transference/environment/Tree/palm-frond.png" id="2_6hnv1"]
 [ext_resource type="Texture2D" uid="uid://dvtjy7vc36xv5" path="res://transference/characters/players/sprites/treetop.png" id="2_fdrss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mh8ud"]
-size = Vector2(56.5, 8)
+size = Vector2(59.25, 23)
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_3w1xm")
@@ -13,40 +12,16 @@ script = ExtResource("1_3w1xm")
 [node name="Fronds_StaticBody" type="StaticBody2D" parent="."]
 z_index = 1
 position = Vector2(0, -28)
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fronds_StaticBody"]
-position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_mh8ud")
 one_way_collision = true
-one_way_collision_margin = 0.0
-
-[node name="Sprite2D5" type="Sprite2D" parent="Fronds_StaticBody"]
-position = Vector2(0, 10)
-texture = ExtResource("2_fdrss")
+one_way_collision_margin = 16.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Fronds_StaticBody"]
-visible = false
-position = Vector2(8, 3)
-rotation = 1.0472
-texture = ExtResource("2_6hnv1")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Fronds_StaticBody"]
-visible = false
-position = Vector2(-8, 3)
-rotation = -2.61799
-texture = ExtResource("2_6hnv1")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Fronds_StaticBody"]
-visible = false
-position = Vector2(-8, 8)
-rotation = -3.14159
-texture = ExtResource("2_6hnv1")
-
-[node name="Sprite2D4" type="Sprite2D" parent="Fronds_StaticBody"]
-visible = false
-position = Vector2(8, 9)
-rotation = 1.5708
-texture = ExtResource("2_6hnv1")
+position = Vector2(0, 10)
+texture = ExtResource("2_fdrss")
 
 [node name="Raycasts" type="Node2D" parent="Fronds_StaticBody"]
 
