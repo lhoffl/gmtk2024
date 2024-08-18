@@ -8,7 +8,7 @@ extends Node2D
 @onready var _frond = $Fronds_StaticBody
 @onready var _frond_sprite = $Fronds_StaticBody/Sprite2D
 @export var _tree_height = 4
-@export var _tree_stand_delay = 300
+@export var _tree_stand_delay = 300.0
 
 @export var _rightBendAmount = 90
 @export var _leftBendAmount = -90
@@ -92,7 +92,7 @@ func _physics_process(delta):
 			else:
 				bendToState(treeStates.BEND, delta, _leftBendAmount)
 				
-	print(treeStates.keys()[treeState] + " Rot: " + str(_trunk.rotation_degrees) + " Delay: " + str(current_stand_delay) + " Frond Rot: " + str(_frond_sprite.rotation))
+	print(treeStates.keys()[treeState] + " Rot: " + str(_trunk.rotation_degrees) + " Delay: " + str(current_stand_delay) + " Frond Rot: " + str(_frond_sprite.rotation) + " " + str(current_stand_delay / _tree_stand_delay))
 	positionFrond()
 	shakeFrond(delta)
 
@@ -101,20 +101,20 @@ func positionFrond():
 	_frond.global_position.y = top_trunk.global_position.y - 4
 	
 func shakeFrond(delta):
-	#var rotateLeft = -15.0
-	#var rotateRight = 15.0
-	##if current_stand_delay / _tree_stand_delay < .3:
-	#if targetFrondRotationDegrees == 0.0:
-		#targetFrondRotationDegrees = rotateLeft
-	#
-	#if _frond_sprite.rotation == deg_to_rad(rotateLeft):
-		#targetFrondRotationDegrees = rotateRight
-	#elif _frond_sprite.rotation == deg_to_rad(rotateRight):
-		#targetFrondRotationDegrees = rotateLeft
-	##else:
-		##targetFrondRotationDegrees = 0.0
-		#
-	#_frond_sprite.rotation = lerp(_frond_sprite.rotation, deg_to_rad(targetFrondRotationDegrees), delta)
+	var rotateLeft = -15.0
+	var rotateRight = 15.0
+	if current_stand_delay / _tree_stand_delay < .5:
+		if targetFrondRotationDegrees == 0.0:
+			targetFrondRotationDegrees = rotateLeft
+			
+		if abs(_frond_sprite.rotation - deg_to_rad(rotateLeft)) < 0.1:
+			targetFrondRotationDegrees = rotateRight
+		elif abs(_frond_sprite.rotation - deg_to_rad(rotateRight)) < 0.1:
+			targetFrondRotationDegrees = rotateLeft
+	else:
+		targetFrondRotationDegrees = 0.0
+		
+	_frond_sprite.rotation = move_toward(_frond_sprite.rotation, deg_to_rad(targetFrondRotationDegrees), delta)
 	pass
 
 func bendToState(newState, delta, bendDegree):
