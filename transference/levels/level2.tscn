@@ -161,5 +161,6 @@ position = Vector2(570, 360)
 position = Vector2(582, 360)
 
 [node name="Tree" parent="." instance=ExtResource("8_atp02")]
-position = Vector2(183, 341)
-_tree_height = 12
+texture_filter = 1
+position = Vector2(108, 331)
+_tree_height = 10

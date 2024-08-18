@@ -1,12 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnqq5uthpxb1p"]
 
-[ext_resource type="Texture2D" uid="uid://dtnqsy4kyxd51" path="res://transference/environment/Tree/palm-trunk.png" id="1_kxlot"]
+[ext_resource type="Texture2D" uid="uid://cl61dla4smvtq" path="res://transference/characters/players/sprites/tree_base.png" id="1_elvg0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ovw1v"]
-radius = 4.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vsor7"]
+radius = 5.0
+height = 16.0
 
 [node name="TX_Segment" type="CollisionShape2D"]
-shape = SubResource("CircleShape2D_ovw1v")
+shape = SubResource("CapsuleShape2D_vsor7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_kxlot")
+texture_filter = 1
+position = Vector2(2, 0)
+texture = ExtResource("1_elvg0")
