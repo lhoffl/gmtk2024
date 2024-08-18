@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://6752smm45qi6"]
+[gd_scene load_steps=11 format=4 uid="uid://6752smm45qi6"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_nxx4g"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_sfjft"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dx2w53x2mtgvt" path="res://transference/environment/Spike/spike.tscn" id="6_cs6t1"]
 [ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="7_h4x73"]
 [ext_resource type="PackedScene" uid="uid://c27ontc004ns0" path="res://transference/environment/yuzu.tscn" id="7_kxtdk"]
+[ext_resource type="PackedScene" uid="uid://mbg4hpuqs78" path="res://transference/environment/Tree/tree.tscn" id="8_lb6m7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_sfjft")
@@ -104,3 +105,7 @@ position = Vector2(96, 307)
 
 [node name="Yuzu" parent="." instance=ExtResource("7_kxtdk")]
 position = Vector2(445, 220)
+
+[node name="Tree" parent="." instance=ExtResource("8_lb6m7")]
+position = Vector2(144, 338)
+_tree_height = 9

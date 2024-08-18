@@ -9,8 +9,8 @@ extends Node2D
 @onready var _raycast_left = $CharacterBody2D/RayCast2D_Left
 @onready var _raycast_right = $CharacterBody2D/RayCast2D_Right
 @export var player_num = 1
-@export var speed = 500.0
-@export var max_speed = 750
+@export var speed = 420.0
+@export var max_speed = 666
 @export var mass = 1
 @export var mass_modifier = 0.7
 @export var coyote_frames = 10
@@ -85,7 +85,7 @@ func get_input(delta):
 		current_coyote_frames -= 1
 		
 	if can_double_jump and Input.is_action_just_pressed("player1_jump"):
-		_character_body.velocity.y = jump_velocity
+		#_character_body.velocity.y = jump_velocity
 		can_double_jump = false
 		
 	if current_coyote_frames > 0 and Input.is_action_just_pressed("player1_jump"):
