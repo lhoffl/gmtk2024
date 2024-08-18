@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnqq5uthpxb1p"]
+
+[ext_resource type="Texture2D" uid="uid://dtnqsy4kyxd51" path="res://transference/environment/Tree/palm-trunk.png" id="1_kxlot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ovw1v"]
+radius = 4.0
+
+[node name="TX_Segment" type="CollisionShape2D"]
+shape = SubResource("CircleShape2D_ovw1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kxlot")
