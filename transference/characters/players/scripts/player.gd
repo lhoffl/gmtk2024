@@ -57,7 +57,6 @@ func _process(delta):
 	set_facing()
 	
 func get_input(delta):
-	
 	if Input.is_action_pressed("player" + str(player_num) + "_mass") and goodToGrow():
 		change_mass(mass_modifier * delta)
 		buddy.change_mass(-mass_modifier * delta)

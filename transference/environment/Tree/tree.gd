@@ -10,8 +10,7 @@ extends Node2D
 
 @export var _rightBendAmount = 90
 @export var _leftBendAmount = -90
-@export var _rightRequiredMass = 0.5
-@export var _leftRequiredMass = 0.5
+@export var _requiredMass = 1.5
 @export var _neutralBendAmount = 45
 
 enum treeStates {STAND, BEND, BEND_UP, BEND_DOWN}
@@ -27,8 +26,9 @@ var leftRays = []
 var bendDegree = 0
 
 var is_bending = false
+var is_bending_right = false
+var player
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	
 	for x in _raycasts.get_children():
@@ -42,29 +42,6 @@ func _ready():
 	
 	buildTree()
 	treeState = treeStates.STAND
-
-func setupRightBend(other):
-	if is_bending:
-		return
-	#var player := other.get_parent().get_parent() as Player
-	#if player.mass >= _rightRequiredMass:
-	bendDegree = _rightBendAmount
-	is_bending = true
-	
-func resetBend(other):
-	bendDegree = _neutralBendAmount
-	is_bending = false
-	
-func setupLeftBend(other):
-	if is_bending:
-		return
-	bendDegree = _leftBendAmount
-	is_bending = true
-	
-	#var player := other.get_parent().get_parent() as Player
-	#if player.mass >= _leftRequiredMass:
-		#bendDegree = _leftBendAmount
-		#is_bending = true
 	
 func buildTree():
 	for n in _tree_height:
@@ -75,23 +52,35 @@ func buildTree():
 	top_trunk = trunk_segments[trunk_segments.size() - 1]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
-	
+func _physics_process(delta):	
 	var leftCount = 0
 	var rightCount = 0
 	
 	for leftRay in leftRays:
 		if leftRay.is_colliding():
 			leftCount += 1
+			player = leftRay.get_collider().get_parent()
 	for rightRay in rightRays:
 		if rightRay.is_colliding():
 			rightCount += 1
-				
-	if(rightCount > leftCount):
-		bendToState(treeStates.BEND, delta, _rightBendAmount)
-	elif(leftCount > rightCount):
-		bendToState(treeStates.BEND, delta, _leftBendAmount)
+			player = rightRay.get_collider().get_parent()
+	
+	if (leftCount > 0 or rightCount > 0) and player and player.mass > _requiredMass:			
+		if not is_bending:
+			is_bending = true
+			if(rightCount > leftCount):
+				is_bending_right = true
+				bendToState(treeStates.BEND, delta, _rightBendAmount)
+			elif(leftCount > rightCount):
+				is_bending_right = false
+				bendToState(treeStates.BEND, delta, _leftBendAmount)
+		else:
+			if is_bending_right:
+				bendToState(treeStates.BEND, delta, _rightBendAmount)
+			else:
+				bendToState(treeStates.BEND, delta, _leftBendAmount)
 	else:
+		is_bending = false
 		bendToState(treeStates.STAND, delta, _neutralBendAmount)
 		
 	positionFrond()
