@@ -1,20 +1,40 @@
-[gd_scene load_steps=12 format=3 uid="uid://cmco0r6j6pdwr"]
+[gd_scene load_steps=16 format=3 uid="uid://cmco0r6j6pdwr"]
 
 [ext_resource type="Script" path="res://transference/characters/players/scripts/player.gd" id="1_7f2m8"]
+[ext_resource type="Texture2D" uid="uid://gnl7q1av2f71" path="res://transference/characters/players/sprites/fox6.png" id="2_23j3t"]
+[ext_resource type="Texture2D" uid="uid://bwr3eicdng51h" path="res://transference/characters/players/sprites/capy6.png" id="2_i52c4"]
 [ext_resource type="Texture2D" uid="uid://c2xr3v201piy5" path="res://transference/characters/players/sprites/fox1.png" id="2_ulms0"]
 [ext_resource type="Texture2D" uid="uid://bk3b08mttnyma" path="res://transference/characters/players/sprites/capy1.png" id="3_5iv4m"]
 [ext_resource type="Texture2D" uid="uid://ddsf77pc563rp" path="res://transference/characters/players/sprites/fox2.png" id="3_6ww8j"]
+[ext_resource type="Texture2D" uid="uid://cso15vgaycfme" path="res://transference/characters/players/sprites/capy5.png" id="4_fv75c"]
 [ext_resource type="Texture2D" uid="uid://dbifw1ckrjovb" path="res://transference/characters/players/sprites/capy2.png" id="4_lg05m"]
 [ext_resource type="Texture2D" uid="uid://dfw332cpftixw" path="res://transference/characters/players/sprites/fox3.png" id="4_o7048"]
 [ext_resource type="Texture2D" uid="uid://jgmhtpj6ckvh" path="res://transference/characters/players/sprites/fox4.png" id="4_t2q0p"]
 [ext_resource type="Texture2D" uid="uid://yywxxtho6fda" path="res://transference/characters/players/sprites/capy4.png" id="5_i43kj"]
 [ext_resource type="Texture2D" uid="uid://dp5aj603l5ncc" path="res://transference/characters/players/sprites/capy3.png" id="5_kcv5g"]
+[ext_resource type="Texture2D" uid="uid://b32qkllytcwbs" path="res://transference/characters/players/sprites/fox5.png" id="6_pybmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj1pj"]
 size = Vector2(15, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jfxdo"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_23j3t")
+}],
+"loop": true,
+"name": &"fall_p1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i52c4")
+}],
+"loop": true,
+"name": &"fall_p2",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_ulms0")
@@ -29,6 +49,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_p2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_pybmm")
+}],
+"loop": true,
+"name": &"jump_p1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fv75c")
+}],
+"loop": true,
+"name": &"jump_p2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -90,7 +126,7 @@ shape = SubResource("RectangleShape2D_mj1pj")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jfxdo")
-animation = &"uncontrolled_p2"
+animation = &"fall_p1"
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="CharacterBody2D"]
 target_position = Vector2(0, -31)

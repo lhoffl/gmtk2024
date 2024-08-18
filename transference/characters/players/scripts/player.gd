@@ -121,7 +121,10 @@ func set_facing():
 		_animated_sprite.play("idle_p" + str(player_num))
 		
 	if not grounded():
-		_animated_sprite.frame = 1
+		if _character_body.velocity.y < 0:
+			_animated_sprite.play("jump_p" + str(player_num))
+		else:
+			_animated_sprite.play("fall_p" + str(player_num))
 		
 func change_mass(amount):
 	
