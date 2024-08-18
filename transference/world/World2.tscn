@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b8llkfu3jj2sf"]
 
 [ext_resource type="Script" path="res://transference/world/World.gd" id="1_0dkyr"]
-[ext_resource type="PackedScene" uid="uid://bjx252f3u5mc7" path="res://transference/levels/level2.tscn" id="2_2vfyi"]
-[ext_resource type="PackedScene" uid="uid://cvjng8x4pch1t" path="res://transference/world/GUI.tscn" id="2_7fwil"]
+[ext_resource type="PackedScene" uid="uid://bjx252f3u5mc7" path="res://transference/Levels/level2.tscn" id="2_2vfyi"]
 [ext_resource type="AudioStream" uid="uid://bpt7g3kc4dg03" path="res://transference/puzzlebeat.wav" id="3_52vpr"]
 [ext_resource type="Script" path="res://transference/world/music_player.gd" id="4_pd8ss"]
 
