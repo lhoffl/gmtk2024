@@ -90,7 +90,7 @@ shape = SubResource("RectangleShape2D_mj1pj")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jfxdo")
-animation = &"uncontrolled_p2"
+animation = &"walk_p2"
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="CharacterBody2D"]
 target_position = Vector2(0, -31)

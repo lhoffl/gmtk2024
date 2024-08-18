@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://mbg4hpuqs78"]
+
+[ext_resource type="Script" path="res://transference/environment/Tree/tree.gd" id="1_3w1xm"]
+[ext_resource type="Texture2D" uid="uid://dtnqsy4kyxd51" path="res://transference/environment/Tree/palm-trunk.png" id="1_wvpqa"]
+[ext_resource type="Texture2D" uid="uid://b2obncbvyep52" path="res://transference/environment/Tree/palm-frond.png" id="2_6hnv1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mh8ud"]
+size = Vector2(20, 7)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_63snm"]
+radius = 4.0
+
+[node name="Tree" type="Node2D"]
+script = ExtResource("1_3w1xm")
+
+[node name="Fronds_StaticBody" type="StaticBody2D" parent="."]
+z_index = 1
+position = Vector2(0, -28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fronds_StaticBody"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_mh8ud")
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Fronds_StaticBody"]
+position = Vector2(8, 3)
+rotation = 1.0472
+texture = ExtResource("2_6hnv1")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Fronds_StaticBody"]
+position = Vector2(-8, 3)
+rotation = -2.61799
+texture = ExtResource("2_6hnv1")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Fronds_StaticBody"]
+position = Vector2(-8, 8)
+rotation = -3.14159
+texture = ExtResource("2_6hnv1")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Fronds_StaticBody"]
+position = Vector2(8, 9)
+rotation = 1.5708
+texture = ExtResource("2_6hnv1")
+
+[node name="RayCast2D" type="RayCast2D" parent="Fronds_StaticBody"]
+target_position = Vector2(0, -23)
+collision_mask = 2
+
+[node name="Trunk" type="StaticBody2D" parent="."]
+
+[node name="T1_CollisionShape2D" type="CollisionShape2D" parent="Trunk"]
+shape = SubResource("CircleShape2D_63snm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Trunk/T1_CollisionShape2D"]
+texture = ExtResource("1_wvpqa")
+
+[node name="T2_CollisionShape2D" type="CollisionShape2D" parent="Trunk"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_63snm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Trunk/T2_CollisionShape2D"]
+texture = ExtResource("1_wvpqa")
+
+[node name="T3_CollisionShape2D" type="CollisionShape2D" parent="Trunk"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_63snm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Trunk/T3_CollisionShape2D"]
+texture = ExtResource("1_wvpqa")
+
+[node name="T4_CollisionShape2D" type="CollisionShape2D" parent="Trunk"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_63snm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Trunk/T4_CollisionShape2D"]
+texture = ExtResource("1_wvpqa")
