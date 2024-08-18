@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://diymbrdids35n" path="res://transference/characters/players/sprites/coin.png" id="1_5mldg"]
 
-[node name="Coin" type="Node2D"]
+[node name="Yuzu" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

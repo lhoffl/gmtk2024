@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c5c07wjrkmn81" path="res://transference/environment/Gate/button.tscn" id="5_ynulr"]
 [ext_resource type="PackedScene" uid="uid://dj4d1jh8gbbgd" path="res://transference/environment/Gate/door.tscn" id="6_6xrvh"]
 [ext_resource type="PackedScene" uid="uid://dx2w53x2mtgvt" path="res://transference/environment/Spike/spike.tscn" id="6_cs6t1"]
-[ext_resource type="Texture2D" uid="uid://diymbrdids35n" path="res://transference/characters/players/sprites/coin.png" id="6_ppyo7"]
 [ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="7_h4x73"]
+[ext_resource type="PackedScene" uid="uid://c27ontc004ns0" path="res://transference/environment/yuzu.tscn" id="7_kxtdk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_sfjft")
@@ -94,12 +94,13 @@ requiredMass = 0.1
 
 [node name="Button3" parent="." instance=ExtResource("5_ynulr")]
 position = Vector2(825, 520)
-requiredMass = 0.1
-
-[node name="Coin" type="Sprite2D" parent="."]
-position = Vector2(449, 223)
-texture = ExtResource("6_ppyo7")
 
 [node name="Oasis" type="Sprite2D" parent="."]
 position = Vector2(849, 524)
 texture = ExtResource("7_h4x73")
+
+[node name="w" parent="." instance=ExtResource("7_kxtdk")]
+position = Vector2(96, 307)
+
+[node name="Yuzu" parent="." instance=ExtResource("7_kxtdk")]
+position = Vector2(445, 220)
