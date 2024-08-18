@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://6752smm45qi6"]
+[gd_scene load_steps=27 format=4 uid="uid://6752smm45qi6"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_hjuxx"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_gftqb"]
@@ -7,7 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://c5c07wjrkmn81" path="res://transference/environment/Gate/button.tscn" id="5_qtkye"]
 [ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="6_aowg2"]
 [ext_resource type="PackedScene" uid="uid://c27ontc004ns0" path="res://transference/environment/yuzu.tscn" id="7_uuqof"]
-[ext_resource type="PackedScene" uid="uid://mbg4hpuqs78" path="res://transference/environment/Tree/tree.tscn" id="8_23ero"]
+[ext_resource type="Texture2D" uid="uid://d3kpyjnvkbvd2" path="res://transference/environment/Cloud/shift_tut1.png" id="8_c70cg"]
+[ext_resource type="Texture2D" uid="uid://ddvnbdcsg5kro" path="res://transference/environment/Cloud/changesize1.png" id="8_yl2tf"]
+[ext_resource type="Texture2D" uid="uid://brftk6fwsm4nc" path="res://transference/environment/Cloud/changesize2.png" id="9_82o4w"]
+[ext_resource type="Texture2D" uid="uid://brdxf1sn6tslr" path="res://transference/environment/Cloud/shift_tut2.png" id="9_kgv6h"]
+[ext_resource type="Texture2D" uid="uid://brbvvf0lk0uyr" path="res://transference/environment/Cloud/shift_tut3.png" id="10_8cwyt"]
+[ext_resource type="Texture2D" uid="uid://dbdnu38l4w7kq" path="res://transference/environment/Cloud/changesize3.png" id="10_nbl2w"]
+[ext_resource type="Texture2D" uid="uid://csdk8eo5ipbpm" path="res://transference/environment/Cloud/changesize4.png" id="11_halo8"]
+[ext_resource type="Texture2D" uid="uid://d13wygml4b7ui" path="res://transference/environment/Cloud/shift_tut4.png" id="11_unhqa"]
+[ext_resource type="Texture2D" uid="uid://b6migeifh13q6" path="res://transference/environment/Cloud/shift_tut5.png" id="12_e4l7w"]
+[ext_resource type="Texture2D" uid="uid://dbqkfdn7oe3ss" path="res://transference/environment/Cloud/shift_tut6.png" id="13_uj4t8"]
+[ext_resource type="Texture2D" uid="uid://cvbmwqsyg1h6h" path="res://transference/environment/Cloud/shift_tut7.png" id="14_lv5fx"]
+[ext_resource type="Texture2D" uid="uid://dvru8fxc6lktr" path="res://transference/environment/Cloud/shift_tut8.png" id="15_22yv8"]
+[ext_resource type="Texture2D" uid="uid://be3thf87ifwg3" path="res://transference/environment/Cloud/shift_tut9.png" id="16_hkeso"]
+[ext_resource type="Texture2D" uid="uid://biayx6ccukgba" path="res://transference/environment/Cloud/shift_tut10.png" id="17_qrmpl"]
+[ext_resource type="Script" path="res://transference/Levels/animated_sprite_2d.gd" id="18_wrc2d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_gftqb")
@@ -46,13 +60,71 @@ texture = ExtResource("2_gftqb")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0hmsf")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nihd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_yl2tf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_82o4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nbl2w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_halo8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbme3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_c70cg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kgv6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8cwyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_unhqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e4l7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_uj4t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lv5fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_22yv8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hkeso")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qrmpl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="DebugLevel" type="Node2D"]
 
 [node name="Player_1" parent="." instance=ExtResource("1_hjuxx")]
 position = Vector2(24, 320)
 
 [node name="Player_2" parent="." instance=ExtResource("1_hjuxx")]
-position = Vector2(645, 503)
+position = Vector2(26, 449)
 player_num = 2
 
 [node name="Layer0" type="TileMapLayer" parent="."]
@@ -94,18 +166,23 @@ position = Vector2(407, 472)
 requiredMass = 0.1
 
 [node name="Button3" parent="." instance=ExtResource("5_qtkye")]
-position = Vector2(787, 520)
+position = Vector2(794, 520)
 
 [node name="Oasis" type="Sprite2D" parent="."]
 position = Vector2(828, 497)
 texture = ExtResource("6_aowg2")
 
-[node name="w" parent="." instance=ExtResource("7_uuqof")]
-position = Vector2(96, 307)
-
 [node name="Yuzu" parent="." instance=ExtResource("7_uuqof")]
 position = Vector2(445, 220)
 
-[node name="Tree" parent="." instance=ExtResource("8_23ero")]
-position = Vector2(144, 338)
-_tree_height = 9
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(221, 222)
+sprite_frames = SubResource("SpriteFrames_7nihd")
+script = ExtResource("18_wrc2d")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(137, 442)
+sprite_frames = SubResource("SpriteFrames_bbme3")
+script = ExtResource("18_wrc2d")
