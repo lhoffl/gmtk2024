@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cmco0r6j6pdwr"]
+[gd_scene load_steps=20 format=3 uid="uid://cmco0r6j6pdwr"]
 
 [ext_resource type="Script" path="res://transference/characters/players/scripts/player.gd" id="1_7f2m8"]
 [ext_resource type="Texture2D" uid="uid://gnl7q1av2f71" path="res://transference/characters/players/sprites/fox6.png" id="2_23j3t"]
@@ -6,16 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://c2xr3v201piy5" path="res://transference/characters/players/sprites/fox1.png" id="2_ulms0"]
 [ext_resource type="Texture2D" uid="uid://bk3b08mttnyma" path="res://transference/characters/players/sprites/capy1.png" id="3_5iv4m"]
 [ext_resource type="Texture2D" uid="uid://ddsf77pc563rp" path="res://transference/characters/players/sprites/fox2.png" id="3_6ww8j"]
+[ext_resource type="Texture2D" uid="uid://j3rcdyu0q03j" path="res://transference/characters/players/sprites/capy_32.png" id="4_a33fm"]
 [ext_resource type="Texture2D" uid="uid://cso15vgaycfme" path="res://transference/characters/players/sprites/capy5.png" id="4_fv75c"]
+[ext_resource type="Texture2D" uid="uid://ct12xm0hqyl75" path="res://transference/characters/players/sprites/capy_64.png" id="4_h5qdw"]
 [ext_resource type="Texture2D" uid="uid://dbifw1ckrjovb" path="res://transference/characters/players/sprites/capy2.png" id="4_lg05m"]
 [ext_resource type="Texture2D" uid="uid://dfw332cpftixw" path="res://transference/characters/players/sprites/fox3.png" id="4_o7048"]
 [ext_resource type="Texture2D" uid="uid://jgmhtpj6ckvh" path="res://transference/characters/players/sprites/fox4.png" id="4_t2q0p"]
+[ext_resource type="Texture2D" uid="uid://bq0vbj2ep1aqx" path="res://transference/characters/players/sprites/capy_tiny1.png" id="5_gb8c8"]
 [ext_resource type="Texture2D" uid="uid://yywxxtho6fda" path="res://transference/characters/players/sprites/capy4.png" id="5_i43kj"]
 [ext_resource type="Texture2D" uid="uid://dp5aj603l5ncc" path="res://transference/characters/players/sprites/capy3.png" id="5_kcv5g"]
+[ext_resource type="Texture2D" uid="uid://d2wyycolcx5nc" path="res://transference/characters/players/sprites/capy_8.png" id="6_lxjni"]
 [ext_resource type="Texture2D" uid="uid://b32qkllytcwbs" path="res://transference/characters/players/sprites/fox5.png" id="6_pybmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj1pj"]
-size = Vector2(15, 12)
+size = Vector2(16, 14.125)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jfxdo"]
 animations = [{
@@ -33,6 +37,38 @@ animations = [{
 }],
 "loop": true,
 "name": &"fall_p2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a33fm")
+}],
+"loop": true,
+"name": &"idle32_p2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gb8c8")
+}],
+"loop": true,
+"name": &"idle4_p2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_h5qdw")
+}],
+"loop": true,
+"name": &"idle64_p2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_lxjni")
+}],
+"loop": true,
+"name": &"idle8_p2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -118,15 +154,13 @@ jump_time_to_fall = 0.3
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 4)
-scale = Vector2(2, 2)
+position = Vector2(0, 1.0625)
 shape = SubResource("RectangleShape2D_mj1pj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_jfxdo")
-animation = &"fall_p1"
+animation = &"idle_p2"
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="CharacterBody2D"]
 target_position = Vector2(0, -31)
