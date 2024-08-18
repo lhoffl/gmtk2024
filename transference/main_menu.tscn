@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3e4flsu04r1p"]
+
+[ext_resource type="Script" path="res://transference/main_menu.gd" id="1_ywi8l"]
+[ext_resource type="Texture2D" uid="uid://qkjbtc0qas2x" path="res://transference/characters/players/sprites/title-placeholder.png" id="2_stxx6"]
+[ext_resource type="Texture2D" uid="uid://ct12xm0hqyl75" path="res://transference/characters/players/sprites/capy_64.png" id="3_4rcyp"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ywi8l")
+levels = {
+"Debug Level": "res://transference/levels/debug_level.tscn",
+"Level 2": "res://transference/levels/level2.tscn"
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_stxx6")
+expand_mode = 5
+
+[node name="Start New Game" type="MenuButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Start New Game"
+flat = false
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+text = "Level Select"
+horizontal_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_4rcyp")
+
+[connection signal="pressed" from="CanvasLayer/MarginContainer/VBoxContainer/Start New Game" to="." method="_on_start_new_game_pressed"]

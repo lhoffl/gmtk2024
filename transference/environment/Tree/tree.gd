@@ -92,7 +92,6 @@ func _physics_process(delta):
 			else:
 				bendToState(treeStates.BEND, delta, _leftBendAmount)
 				
-	print(treeStates.keys()[treeState] + " Rot: " + str(_trunk.rotation_degrees) + " Delay: " + str(current_stand_delay) + " Frond Rot: " + str(_frond_sprite.rotation) + " " + str(current_stand_delay / _tree_stand_delay))
 	positionFrond()
 	shakeFrond(delta)
 

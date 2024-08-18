@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://d38vjedwlwn0i"]
+
+[ext_resource type="Texture2D" uid="uid://d1l17ijgwk81c" path="res://transference/characters/players/sprites/bg.png" id="1_ut4yi"]
+[ext_resource type="Script" path="res://transference/world/player_info.gd" id="2_k02nl"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -940.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 290
+script = ExtResource("2_k02nl")
+
+[node name="PlayerInfo" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(300, 40)
+layout_mode = 2
+texture = ExtResource("1_ut4yi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PlayerInfo"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayerNameLabel" type="Label" parent="PlayerInfo/VBoxContainer"]
+layout_mode = 2
+text = "Fennec Fox"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerInfo/VBoxContainer"]
+layout_mode = 2
+
+[node name="MassLabel" type="Label" parent="PlayerInfo/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Mass: "
+
+[node name="MassValueLabel" type="Label" parent="PlayerInfo/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "X"
