@@ -93,10 +93,10 @@ position = Vector2(407, 472)
 requiredMass = 0.1
 
 [node name="Button3" parent="." instance=ExtResource("5_ynulr")]
-position = Vector2(825, 520)
+position = Vector2(787, 520)
 
 [node name="Oasis" type="Sprite2D" parent="."]
-position = Vector2(849, 524)
+position = Vector2(828, 497)
 texture = ExtResource("7_h4x73")
 
 [node name="w" parent="." instance=ExtResource("7_kxtdk")]
