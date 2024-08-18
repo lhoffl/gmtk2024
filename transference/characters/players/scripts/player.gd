@@ -117,16 +117,7 @@ func set_facing():
 		_animated_sprite.play("walk_p" + str(player_num))
 		_animated_sprite.flip_h = true
 	else:
-		if mass > 1.7:
-			_animated_sprite.play("idle64_p" + str(player_num))
-		elif mass > 1.3:
-			_animated_sprite.play("idle32_p" + str(player_num))
-		elif mass > 1:
-			_animated_sprite.play("idle_p" + str(player_num))
-		elif mass < 0.5:
-			_animated_sprite.play("idle8_p" + str(player_num))
-		elif mass < 0.3:
-			_animated_sprite.play("idle4_p" + str(player_num))
+		_animated_sprite.play("idle_p" + str(player_num))
 		
 	if not grounded():
 		if _character_body.velocity.y < 0:
@@ -139,7 +130,7 @@ func change_mass(amount):
 	# NOTE: could be fun to change mass in air but it currently allows you to break through the floor so leave disable for now
 	if !grounded() || !buddy.grounded():
 		return
-	mass = clamp((mass + amount), 0.5, 2)
+	mass = clamp((mass + amount), 0.25, 4)
 	_character_body.scale = Vector2(mass, mass)
 	
 func becomePlayerControlled():

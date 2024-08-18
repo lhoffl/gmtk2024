@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://dbifw1ckrjovb" path="res://transference/characters/players/sprites/capy2.png" id="4_lg05m"]
 [ext_resource type="Texture2D" uid="uid://dfw332cpftixw" path="res://transference/characters/players/sprites/fox3.png" id="4_o7048"]
 [ext_resource type="Texture2D" uid="uid://jgmhtpj6ckvh" path="res://transference/characters/players/sprites/fox4.png" id="4_t2q0p"]
-[ext_resource type="Texture2D" uid="uid://bq0vbj2ep1aqx" path="res://transference/characters/players/sprites/capy_tiny1.png" id="5_gb8c8"]
 [ext_resource type="Texture2D" uid="uid://yywxxtho6fda" path="res://transference/characters/players/sprites/capy4.png" id="5_i43kj"]
 [ext_resource type="Texture2D" uid="uid://dp5aj603l5ncc" path="res://transference/characters/players/sprites/capy3.png" id="5_kcv5g"]
 [ext_resource type="Texture2D" uid="uid://d2wyycolcx5nc" path="res://transference/characters/players/sprites/capy_8.png" id="6_lxjni"]
@@ -20,6 +19,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj1pj"]
 size = Vector2(16, 14.125)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0l7t7"]
+load_path = "res://.godot/imported/capy_tiny1.png-2f6bf2e4863f083731df1a87d3e6c73e.ctex"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jfxdo"]
 animations = [{
@@ -49,7 +51,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_gb8c8")
+"texture": SubResource("CompressedTexture2D_0l7t7")
 }],
 "loop": true,
 "name": &"idle4_p2",
@@ -163,23 +165,23 @@ sprite_frames = SubResource("SpriteFrames_jfxdo")
 animation = &"idle_p2"
 
 [node name="RayCast2D_Up" type="RayCast2D" parent="CharacterBody2D"]
-target_position = Vector2(0, -31)
+target_position = Vector2(0, -10)
 hit_from_inside = true
 
 [node name="RayCast2D_Down_RightLeg" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(9, 0)
-target_position = Vector2(0, 26)
+position = Vector2(4, 0)
+target_position = Vector2(0, 10)
 hit_from_inside = true
 
 [node name="RayCast2D_Down_LeftLeg" type="RayCast2D" parent="CharacterBody2D"]
-position = Vector2(-9, 0)
-target_position = Vector2(0, 26)
+position = Vector2(-2, 0)
+target_position = Vector2(0, 10)
 hit_from_inside = true
 
 [node name="RayCast2D_Left" type="RayCast2D" parent="CharacterBody2D"]
-target_position = Vector2(-21, 0)
+target_position = Vector2(-10, 0)
 hit_from_inside = true
 
 [node name="RayCast2D_Right" type="RayCast2D" parent="CharacterBody2D"]
-target_position = Vector2(21, 0)
+target_position = Vector2(10, 0)
 hit_from_inside = true
