@@ -40,6 +40,8 @@ func _ready():
 	if player_num == 1:
 		player_controlled = true
 	
+	_character_body.scale = Vector2(mass, mass)
+	
 func _physics_process(delta):
 	get_input(delta)
 	apply_gravity(delta)

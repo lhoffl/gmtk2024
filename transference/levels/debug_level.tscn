@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://be3thf87ifwg3" path="res://transference/environment/Cloud/shift_tut9.png" id="16_hkeso"]
 [ext_resource type="Texture2D" uid="uid://biayx6ccukgba" path="res://transference/environment/Cloud/shift_tut10.png" id="17_qrmpl"]
 [ext_resource type="Script" path="res://transference/Levels/animated_sprite_2d.gd" id="18_wrc2d"]
+[ext_resource type="PackedScene" path="res://transference/environment/yuzu.tscn" id="7_uuqof"]
+[ext_resource type="PackedScene" uid="uid://mbg4hpuqs78" path="res://transference/environment/Tree/tree.tscn" id="8_23ero"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_gftqb")

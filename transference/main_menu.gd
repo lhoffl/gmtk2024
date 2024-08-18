@@ -1,6 +1,10 @@
 extends Control
 
-@export var levels = {}
+var levels = {
+	"Tutorial - 1": "tutorial_level_1",
+	"Tutorial - 2": "tutorial_level_2",
+	"Capybara Charge": "level_capybara_charge"
+	}
 @onready var _world : CapyWorld = $World
 @onready var _level_select_menu = $CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer
 @onready var _canvas = $CanvasLayer
