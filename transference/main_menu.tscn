@@ -37,11 +37,10 @@ size_flags_horizontal = 4
 texture = ExtResource("2_stxx6")
 expand_mode = 5
 
-[node name="Start New Game" type="MenuButton" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+[node name="Start New Game" type="Button" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Start New Game"
-flat = false
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 200)
