@@ -1,10 +1,10 @@
 extends Control
 
 @export var levels = {}
-
+@onready var _world : CapyWorld = $World
 @onready var _level_select_menu = $CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer
+@onready var _canvas = $CanvasLayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	addLevelsToSelect()
 
@@ -15,14 +15,14 @@ func addLevelsToSelect():
 			button.pressed.connect(_on_level_pressed.bind(x))
 			_level_select_menu.add_child(button)
 			
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_start_new_game_pressed() -> void:
 	print_debug("start new game pressed")
-	pass # Replace with function body.
 
 func _on_level_pressed(x) -> void:
+	_world.show()
+	_canvas.hide()
+	_world.load_level(levels[x])
 	print_debug("level pressed: " + x)
