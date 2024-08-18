@@ -12,7 +12,7 @@ extends Node2D
 @export var speed = 420.0
 @export var max_speed = 666
 @export var mass = 1
-@export var mass_modifier = 0.7
+@export var mass_modifier = 1.7
 @export var coyote_frames = 10
 
 @export var player_controlled : bool = false
@@ -130,7 +130,7 @@ func change_mass(amount):
 	# NOTE: could be fun to change mass in air but it currently allows you to break through the floor so leave disable for now
 	if !grounded() || !buddy.grounded():
 		return
-	mass = clamp((mass + amount), 0.25, 4)
+	mass = clamp((mass + amount), 0.5, 3)
 	_character_body.scale = Vector2(mass, mass)
 	
 func becomePlayerControlled():
