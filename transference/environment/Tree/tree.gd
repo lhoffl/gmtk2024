@@ -77,7 +77,7 @@ func _physics_process(delta):
 			is_bending_right = true
 		elif(leftCount > rightCount):
 			is_bending_right = false
-	elif treeState == treeStates.BENT:
+	elif treeState == treeStates.BENT and not ((leftCount > 0 or rightCount > 0) and player and player.mass > _requiredMass):
 		current_stand_delay -= 1
 		if current_stand_delay <= 0:
 			current_stand_delay = _tree_stand_delay
