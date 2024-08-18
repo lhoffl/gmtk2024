@@ -62,17 +62,17 @@ func get_input(delta):
 		change_mass(mass_modifier * delta)
 		buddy.change_mass(-mass_modifier * delta)
 	
+	var clampedSpeed = clampf(speed * 1/mass, 0, max_speed)
+	if player_controlled and Input.is_action_pressed("player1_left"):
+		_character_body.velocity.x = lerp(_character_body.velocity.x, -1 * clampedSpeed, delta * 0.5)
+	elif player_controlled and Input.is_action_pressed("player1_right"):
+		_character_body.velocity.x = lerp(_character_body.velocity.x, clampedSpeed, delta * 0.5)
+	elif grounded():
+		_character_body.velocity.x = lerp(_character_body.velocity.x, 0.0, delta * 10)
+	
 	if not player_controlled:
 		_animated_sprite.play("uncontrolled_p" + str(player_num))
 		return
-	
-	var clampedSpeed = clampf(speed * 1/mass, 0, max_speed)
-	if Input.is_action_pressed("player1_left"):
-		_character_body.velocity.x = lerp(_character_body.velocity.x, -1 * clampedSpeed, delta * 0.5)
-	elif Input.is_action_pressed("player1_right"):
-		_character_body.velocity.x = lerp(_character_body.velocity.x, clampedSpeed, delta * 0.5)
-	else:
-		_character_body.velocity.x = lerp(_character_body.velocity.x, 0.0, delta * 10)
 	
 	if grounded():
 		current_coyote_frames = coyote_frames

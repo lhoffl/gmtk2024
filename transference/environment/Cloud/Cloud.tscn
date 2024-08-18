@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://u8gegiu14ny"]
+
+[ext_resource type="Texture2D" uid="uid://egvfbyv4um5r" path="res://transference/environment/Cloud/cloud.png" id="1_5d01y"]
+[ext_resource type="Script" path="res://transference/environment/Cloud/cloud.gd" id="1_gpvdd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dbqd"]
+size = Vector2(27, 11.5)
+
+[node name="Cloud" type="StaticBody2D"]
+script = ExtResource("1_gpvdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4dbqd")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("1_5d01y")

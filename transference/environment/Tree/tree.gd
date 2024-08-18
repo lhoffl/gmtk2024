@@ -34,8 +34,6 @@ func _physics_process(delta):
 	else:
 		bendToState(treeStates.STAND, delta)
 	positionFrond()
-	
-	print(str(treeState) + str(raycasts.any(func(r): return r.is_colliding())) + ", " + str(_trunk.rotation))
 
 func positionFrond():
 	_frond.global_position.x = top_trunk.global_position.x
@@ -48,10 +46,10 @@ func bendToState(newState, delta):
 				treeState = treeStates.BEND
 			else:
 				treeState = treeStates.BEND_DOWN
-			_trunk.rotation = move_toward(_trunk.rotation, deg_to_rad(90), delta * rotation_speed)
+			_trunk.rotation = lerp(_trunk.rotation, deg_to_rad(90), delta * rotation_speed)
 		if newState	 == treeStates.STAND:
 			if _trunk.rotation == deg_to_rad(90):
 				treeState = treeStates.STAND
 			else:
 				treeState = treeStates.BEND_UP
-			_trunk.rotation = move_toward(_trunk.rotation, deg_to_rad(0), delta * rotation_speed)
+			_trunk.rotation = lerp(_trunk.rotation, deg_to_rad(0), delta * rotation_speed)
