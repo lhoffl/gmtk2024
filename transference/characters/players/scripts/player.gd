@@ -31,6 +31,7 @@ var current_coyote_frames = 0
 var coyote_active : bool = true
 var can_double_jump : bool = true
 var swap_cooldown = 0
+var level_won : bool = false
 
 func _ready():
 	_animated_sprite.play("idle_p" + str(player_num))
@@ -43,7 +44,12 @@ func _ready():
 	_character_body.scale = Vector2(mass, mass)
 	
 func _physics_process(delta):
-	get_input(delta)
+
+	if not level_won:
+		get_input(delta)
+	else:
+		jump()
+		
 	apply_gravity(delta)
 	_character_body.move_and_slide()
 
@@ -90,10 +96,7 @@ func get_input(delta):
 		can_double_jump = false
 		
 	if current_coyote_frames > 0 and Input.is_action_just_pressed("player1_jump"):
-		_character_body.velocity.y = jump_velocity
-		coyote_active = false
-		can_double_jump = true
-		current_coyote_frames = 0
+		jump()
 		
 	if Input.is_action_just_released("swapBuddies"):
 		if(buddy.can_swap()):
@@ -101,6 +104,13 @@ func get_input(delta):
 			swap_cooldown = 0.1
 			buddy.player_controlled = true
 			
+func jump():
+	if grounded():
+		_character_body.velocity.y = jump_velocity
+		coyote_active = false
+		can_double_jump = true
+		current_coyote_frames = 0
+		
 func goodToGrow() -> bool:
 	return not (_raycast_up.is_colliding() || _raycast_left.is_colliding() || _raycast_right.is_colliding())
 
@@ -108,8 +118,7 @@ func grounded() -> bool:
 	return _raycast_leftLegDown.is_colliding() || _raycast_rightLegDown.is_colliding()
 
 func set_facing():
-	if not player_controlled:
-		_animated_sprite.stop()
+	if not player_controlled and not level_won:
 		return
 	
 	if Input.is_action_pressed("player1_left"):
@@ -120,6 +129,7 @@ func set_facing():
 		_animated_sprite.flip_h = true
 	else:
 		_animated_sprite.play("idle_p" + str(player_num))
+		_animated_sprite.stop()
 		
 	if not grounded():
 		if _character_body.velocity.y < 0:
@@ -140,3 +150,7 @@ func becomePlayerControlled():
 
 func can_swap():
 	return swap_cooldown < 0
+	
+func win_level():
+	_animated_sprite.play("walk_p" + str(player_num))
+	level_won = true

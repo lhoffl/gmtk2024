@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_ufl86"]
 [ext_resource type="PackedScene" uid="uid://dj4d1jh8gbbgd" path="res://transference/environment/Gate/door.tscn" id="4_34bat"]
 [ext_resource type="PackedScene" uid="uid://c5c07wjrkmn81" path="res://transference/environment/Gate/button.tscn" id="5_i5fib"]
-[ext_resource type="PackedScene" path="res://transference/environment/yuzu.tscn" id="6_hcfee"]
+[ext_resource type="PackedScene" uid="uid://c21ed2n8akipy" path="res://transference/environment/yuzu.tscn" id="6_hcfee"]
 [ext_resource type="PackedScene" uid="uid://jmll7jwneorb" path="res://transference/oasis.tscn" id="6_us2ix"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
