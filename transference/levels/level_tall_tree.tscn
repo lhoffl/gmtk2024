@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://db6gjags3rmcw"]
+[gd_scene load_steps=8 format=4 uid="uid://b2af3j3whiouc"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_m31am"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_xdoiv"]
 [ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="3_jsuln"]
-[ext_resource type="PackedScene" uid="uid://c21ed2n8akipy" path="res://transference/environment/yuzu.tscn" id="4_qnqa6"]
+[ext_resource type="PackedScene" uid="uid://c27ontc004ns0" path="res://transference/environment/yuzu.tscn" id="4_qnqa6"]
 [ext_resource type="PackedScene" uid="uid://mbg4hpuqs78" path="res://transference/environment/Tree/tree.tscn" id="5_piij1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
@@ -59,7 +59,7 @@ tile_map_data = PackedByteArray("AAAJAD8AAAADAAIAAAAKAD8AAAADAAIAAAALAD8AAAADAAI
 tile_set = SubResource("TileSet_mpvpd")
 
 [node name="Oasis" type="Sprite2D" parent="."]
-position = Vector2(3245, 136)
+position = Vector2(3246, 188)
 texture = ExtResource("3_jsuln")
 
 [node name="Yuzu" parent="." instance=ExtResource("4_qnqa6")]

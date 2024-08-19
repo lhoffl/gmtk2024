@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bghvlcc8joqq"]
+[gd_scene load_steps=27 format=4 uid="uid://cw17rn703qkvv"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_hjuxx"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_gftqb"]
@@ -184,4 +184,4 @@ sprite_frames = SubResource("SpriteFrames_bbme3")
 script = ExtResource("18_wrc2d")
 
 [node name="Oasis" parent="." instance=ExtResource("22_jrmue")]
-position = Vector2(834, 509)
+position = Vector2(829, 498)

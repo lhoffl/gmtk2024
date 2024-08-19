@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://jmll7jwneorb"]
+[gd_scene load_steps=5 format=3 uid="uid://ct3m64g5qtagh"]
 
 [ext_resource type="Script" path="res://transference/oasis.gd" id="1_7noj3"]
 [ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="1_hupeg"]

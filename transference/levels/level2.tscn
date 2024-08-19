@@ -162,5 +162,5 @@ position = Vector2(108, 331)
 _tree_height = 10
 
 [node name="Oasis" type="Sprite2D" parent="."]
-position = Vector2(832, 496)
+position = Vector2(835, 508)
 texture = ExtResource("6_g00kg")

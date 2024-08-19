@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://bghvlcc8joqq"]
+[gd_scene load_steps=9 format=4 uid="uid://rj7cfgp6ogpc"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_l6tr1"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_agk7x"]
 [ext_resource type="PackedScene" uid="uid://dj4d1jh8gbbgd" path="res://transference/environment/Gate/door.tscn" id="4_yheck"]
 [ext_resource type="PackedScene" uid="uid://c5c07wjrkmn81" path="res://transference/environment/Gate/button.tscn" id="5_30tnu"]
-[ext_resource type="PackedScene" uid="uid://c21ed2n8akipy" path="res://transference/environment/yuzu.tscn" id="6_qschh"]
-[ext_resource type="PackedScene" uid="uid://jmll7jwneorb" path="res://transference/oasis.tscn" id="6_vh7kb"]
+[ext_resource type="PackedScene" uid="uid://c27ontc004ns0" path="res://transference/environment/yuzu.tscn" id="6_qschh"]
+[ext_resource type="PackedScene" uid="uid://ct3m64g5qtagh" path="res://transference/oasis.tscn" id="6_vh7kb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_agk7x")
@@ -73,4 +73,4 @@ position = Vector2(658, 473)
 position = Vector2(528, 577)
 
 [node name="Oasis" parent="." instance=ExtResource("6_vh7kb")]
-position = Vector2(864, 512)
+position = Vector2(867, 525)

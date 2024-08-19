@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ddvnbdcsg5kro" path="res://transference/environment/Cloud/changesize1.png" id="5_quey4"]
 [ext_resource type="Texture2D" uid="uid://brftk6fwsm4nc" path="res://transference/environment/Cloud/changesize2.png" id="6_omgam"]
 [ext_resource type="Texture2D" uid="uid://dbdnu38l4w7kq" path="res://transference/environment/Cloud/changesize3.png" id="7_tiwuf"]
-[ext_resource type="PackedScene" uid="uid://c21ed2n8akipy" path="res://transference/environment/yuzu.tscn" id="7_wmf15"]
+[ext_resource type="PackedScene" uid="uid://c27ontc004ns0" path="res://transference/environment/yuzu.tscn" id="7_wmf15"]
 [ext_resource type="Texture2D" uid="uid://csdk8eo5ipbpm" path="res://transference/environment/Cloud/changesize4.png" id="8_02lwa"]
-[ext_resource type="PackedScene" uid="uid://jmll7jwneorb" path="res://transference/oasis.tscn" id="9_gs7mo"]
+[ext_resource type="PackedScene" uid="uid://ct3m64g5qtagh" path="res://transference/oasis.tscn" id="9_gs7mo"]
 [ext_resource type="Script" path="res://transference/Levels/animated_sprite_2d.gd" id="9_w1xex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
@@ -92,4 +92,4 @@ sprite_frames = SubResource("SpriteFrames_r2fn0")
 script = ExtResource("9_w1xex")
 
 [node name="Oasis" parent="." instance=ExtResource("9_gs7mo")]
-position = Vector2(864, 512)
+position = Vector2(867, 525)
