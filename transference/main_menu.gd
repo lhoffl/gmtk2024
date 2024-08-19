@@ -7,7 +7,8 @@ var levels = {
 	"Tutorial - 3": "tutorial_level_3",
 	"Tall Tree": "level_tall_tree",
 	"Capybara Charge": "level_capybara_charge",
-	"The Vault": "level_vault"
+	"The Vault": "level_vault",
+	"Cloud Taxi": "level_cloud_taxi"
 	}
 @onready var main_menu_state = MAIN_MENU_STATES.MAIN_MENU
 @onready var _world : CapyWorld = $World
@@ -106,11 +107,12 @@ func get_yuzu_node_and_setup_signal():
 		yuzu.yuzu_get_signal.connect(_on_yuzu_get_signal)
 
 func restartLevel():
-	_lose_screen.show()
-	await get_tree().create_timer(0.5).timeout
+	if main_menu_state != MAIN_MENU_STATES.GAME_WIN:
+		_lose_screen.show()
+		await get_tree().create_timer(0.5).timeout
 	
-	_lose_screen.hide()
-	load_level(levels.get(levels.keys()[level_index]))
+		_lose_screen.hide()
+		load_level(levels.get(levels.keys()[level_index]))
 
 func searchAllNodesByName(node_name) -> Node:
 	var nodesToCheck := get_children()
