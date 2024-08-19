@@ -5,11 +5,11 @@ var levels = {
 	"Tutorial - 1": "tutorial_level_1",
 	"Tutorial - 2": "tutorial_level_2",
 	"Tutorial - 3": "tutorial_level_3",
-	"Tall Tree": "level_tall_tree",
-	"Capybara Charge": "level_capybara_charge",
 	"The Vault": "level_vault",
+	"Forest": "level_forest",
+	"Capybara Charge": "level_capybara_charge",
 	"Cloud Taxi": "level_cloud_taxi",
-	"Forest": "level_forest"
+	"Tall Tree": "level_tall_tree",
 	}
 @onready var main_menu_state = MAIN_MENU_STATES.MAIN_MENU
 @onready var _world : CapyWorld = $World
