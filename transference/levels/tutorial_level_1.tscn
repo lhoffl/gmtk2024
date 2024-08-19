@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://dmbvm8m8snl57"]
+[gd_scene load_steps=7 format=4 uid="uid://dmbvm8m8snl57"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_0xeiw"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_lvjeb"]
 [ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="6_pdf4y"]
+[ext_resource type="PackedScene" path="res://transference/environment/yuzu.tscn" id="7_wmf15"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_lvjeb")
@@ -59,3 +60,6 @@ tile_set = SubResource("TileSet_mpvpd")
 [node name="Oasis" type="Sprite2D" parent="."]
 position = Vector2(864, 513)
 texture = ExtResource("6_pdf4y")
+
+[node name="Yuzu" parent="." instance=ExtResource("7_wmf15")]
+position = Vector2(761, 527)
