@@ -39,12 +39,8 @@ func load_level(level_name):
 			node.player.get_node_or_null("CharacterBody2D").add_child(remote_transform)
 			
 		oasis = $VBoxContainer/SubViewportContainer/SubViewport/CurrentLevel/Oasis
-<<<<<<< Updated upstream
 		oasis.nextLevelSignal.connect(load_level)
 
-=======
-		var oasisArea = oasis.get_child(0) as Area2D
->>>>>>> Stashed changes
 	else:
 		print("RUH ROH")
 		

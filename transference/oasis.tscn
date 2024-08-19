@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=5 format=3 uid="uid://ct3m64g5qtagh"]
-=======
-[gd_scene load_steps=5 format=3 uid="uid://cs5ss46mpk88c"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://transference/oasis.gd" id="1_7noj3"]
 [ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="1_hupeg"]
@@ -34,8 +30,5 @@ shape = SubResource("RectangleShape2D_rpfgk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y8dk1")
-<<<<<<< Updated upstream
 
 [connection signal="nextLevelSignal" from="." to="." method="_on_next_level_signal"]
-=======
->>>>>>> Stashed changes
