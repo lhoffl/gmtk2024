@@ -8,7 +8,8 @@ var levels = {
 	"Tall Tree": "level_tall_tree",
 	"Capybara Charge": "level_capybara_charge",
 	"The Vault": "level_vault",
-	"Cloud Taxi": "level_cloud_taxi"
+	"Cloud Taxi": "level_cloud_taxi",
+	"Forest": "level_forest"
 	}
 @onready var main_menu_state = MAIN_MENU_STATES.MAIN_MENU
 @onready var _world : CapyWorld = $World
