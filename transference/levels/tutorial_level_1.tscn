@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dmbvm8m8snl57"]
+[gd_scene load_steps=14 format=4 uid="uid://dmbvm8m8snl57"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_0xeiw"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_lvjeb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://csdk8eo5ipbpm" path="res://transference/environment/Cloud/changesize4.png" id="8_02lwa"]
 [ext_resource type="PackedScene" uid="uid://ct3m64g5qtagh" path="res://transference/oasis.tscn" id="9_gs7mo"]
 [ext_resource type="Script" path="res://transference/Levels/animated_sprite_2d.gd" id="9_w1xex"]
+[ext_resource type="PackedScene" uid="uid://dx2w53x2mtgvt" path="res://transference/environment/Spike/spike.tscn" id="10_uktw0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_lvjeb")
@@ -93,3 +94,6 @@ script = ExtResource("9_w1xex")
 
 [node name="Oasis" parent="." instance=ExtResource("9_gs7mo")]
 position = Vector2(867, 525)
+
+[node name="Spike" parent="." instance=ExtResource("10_uktw0")]
+position = Vector2(386, 536)

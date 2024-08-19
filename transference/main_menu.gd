@@ -68,6 +68,7 @@ func load_level(level_scene_name):
 	_win_screen_canvas.hide()
 	_world.load_level(level_scene_name)
 	get_oasis_node_and_setup_signal()
+	get_cactus_node_and_setup_signal()
 	change_main_menu_state(MAIN_MENU_STATES.GAME_PLAY)
 	
 func get_oasis_node_and_setup_signal():
@@ -86,7 +87,17 @@ func get_oasis_node_and_setup_signal():
 		oasis.you_are_winner_signal.connect(_on_you_are_winner_signal)
 	else:
 		print_debug("RUH ROH (main menu)")
-	
+		
+func get_cactus_node_and_setup_signal():
+	#setup new connection
+	var spike = searchAllNodesByName("Spike")
+	if spike:
+		spike.youLose.connect(restartLevel)
+
+func restartLevel():
+	print("RESTARTING LEVEL")
+	load_level(levels.get(levels.keys()[level_index]))
+
 func searchAllNodesByName(node_name) -> Node:
 	var nodesToCheck := get_children()
 	while not nodesToCheck.is_empty():
