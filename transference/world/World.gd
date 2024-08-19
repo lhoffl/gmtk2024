@@ -4,12 +4,10 @@ extends Node2D
 var level_num = 0
 @onready var viewport = $VBoxContainer/SubViewportContainer/SubViewport
 var level_instance
-var oasis
 
 func load_level(level_name):
 	if viewport.get_child_count() > 1:
 		viewport.remove_child(viewport.get_child(1))
-		oasis.nextLevelSignal.disconnect()
 	
 	var level_path := "res://transference/Levels/%s.tscn" % level_name
 	var level_resource := load(level_path)
@@ -38,9 +36,6 @@ func load_level(level_name):
 			remote_transform.remote_path = node.camera.get_path()
 			node.player.get_node_or_null("CharacterBody2D").add_child(remote_transform)
 			
-		oasis = $VBoxContainer/SubViewportContainer/SubViewport/CurrentLevel/Oasis
-		oasis.nextLevelSignal.connect(load_level)
-
 	else:
 		print("RUH ROH")
 		
