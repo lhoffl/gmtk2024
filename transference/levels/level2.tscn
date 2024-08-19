@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bjx252f3u5mc7"]
+[gd_scene load_steps=8 format=4 uid="uid://c6k7o3iv6e4hu"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_i00ak"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_2kdfe"]

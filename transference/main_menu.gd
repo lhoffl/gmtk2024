@@ -5,8 +5,8 @@ var levels = {
 	"Tutorial - 1": "tutorial_level_1",
 	"Tutorial - 2": "tutorial_level_2",
 	"Tutorial - 3": "tutorial_level_3",
-	"Capybara Charge": "level_capybara_charge",
-	"Tall Tree": "level_tall_tree"
+	"Tall Tree": "level_tall_tree",
+	"Capybara Charge": "level_capybara_charge"
 	}
 @onready var main_menu_state = MAIN_MENU_STATES.MAIN_MENU
 @onready var _world : CapyWorld = $World
