@@ -5,7 +5,8 @@ var levels = {
 	"Tutorial - 1": "tutorial_level_1",
 	"Tutorial - 2": "tutorial_level_2",
 	"Tutorial - 3": "tutorial_level_3",
-	"Capybara Charge": "level_capybara_charge"
+	"Capybara Charge": "level_capybara_charge",
+	"Tall Tree": "level_tall_tree"
 	}
 @onready var main_menu_state = MAIN_MENU_STATES.MAIN_MENU
 @onready var _world : CapyWorld = $World
@@ -58,7 +59,7 @@ func _on_level_pressed(x) -> void:
 	level_index = levels.keys().find(x)
 	_world.time_score = (levels.size() - level_index) * 1000
 	_world.yuzu_count = 0
-	load_level(level_index)
+	load_level(levels[x])
 	
 func load_level(level_scene_name):
 	print_debug("attempting to load " + level_scene_name)
