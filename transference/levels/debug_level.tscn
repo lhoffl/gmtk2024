@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dx2w53x2mtgvt" path="res://transference/environment/Spike/spike.tscn" id="3_hxq18"]
 [ext_resource type="PackedScene" uid="uid://dj4d1jh8gbbgd" path="res://transference/environment/Gate/door.tscn" id="4_l37x0"]
 [ext_resource type="PackedScene" uid="uid://c5c07wjrkmn81" path="res://transference/environment/Gate/button.tscn" id="5_qtkye"]
-[ext_resource type="Texture2D" uid="uid://c1ih5s0aoymtu" path="res://transference/characters/players/sprites/oasis.png" id="6_aowg2"]
 [ext_resource type="PackedScene" uid="uid://c27ontc004ns0" path="res://transference/environment/yuzu.tscn" id="7_uuqof"]
 [ext_resource type="Texture2D" uid="uid://d3kpyjnvkbvd2" path="res://transference/environment/Cloud/shift_tut1.png" id="8_c70cg"]
 [ext_resource type="Texture2D" uid="uid://ddvnbdcsg5kro" path="res://transference/environment/Cloud/changesize1.png" id="8_yl2tf"]
@@ -22,8 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://be3thf87ifwg3" path="res://transference/environment/Cloud/shift_tut9.png" id="16_hkeso"]
 [ext_resource type="Texture2D" uid="uid://biayx6ccukgba" path="res://transference/environment/Cloud/shift_tut10.png" id="17_qrmpl"]
 [ext_resource type="Script" path="res://transference/Levels/animated_sprite_2d.gd" id="18_wrc2d"]
-[ext_resource type="PackedScene" path="res://transference/environment/yuzu.tscn" id="7_uuqof"]
-[ext_resource type="PackedScene" uid="uid://mbg4hpuqs78" path="res://transference/environment/Tree/tree.tscn" id="8_23ero"]
+[ext_resource type="PackedScene" uid="uid://ct3m64g5qtagh" path="res://transference/oasis.tscn" id="22_jrmue"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_gftqb")
@@ -120,7 +118,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="DebugLevel" type="Node2D"]
+[node name="DebugLevel2" type="Node2D"]
 
 [node name="Player_1" parent="." instance=ExtResource("1_hjuxx")]
 position = Vector2(24, 320)
@@ -170,10 +168,6 @@ requiredMass = 0.1
 [node name="Button3" parent="." instance=ExtResource("5_qtkye")]
 position = Vector2(794, 520)
 
-[node name="Oasis" type="Sprite2D" parent="."]
-position = Vector2(828, 497)
-texture = ExtResource("6_aowg2")
-
 [node name="Yuzu" parent="." instance=ExtResource("7_uuqof")]
 position = Vector2(445, 220)
 
@@ -188,3 +182,6 @@ texture_filter = 1
 position = Vector2(137, 442)
 sprite_frames = SubResource("SpriteFrames_bbme3")
 script = ExtResource("18_wrc2d")
+
+[node name="Oasis" parent="." instance=ExtResource("22_jrmue")]
+position = Vector2(829, 498)
