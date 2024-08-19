@@ -16,6 +16,7 @@ var levels = {
 @onready var _level_select_menu = $CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer
 @onready var _canvas = $CanvasLayer
 @onready var _win_screen_canvas = $CanvasLayer2
+@onready var _win_screen_text = $CanvasLayer2/MarginContainer/Label
 @onready var _gui_canvas = $UI_CanvasLayer
 @onready var _lose_screen = $CanvasLayer3
 
@@ -60,6 +61,7 @@ func next_level():
 		print_debug("Triggering Next Level - Scene " + levels.get(levels.keys()[level_index]))
 		load_level(levels.get(levels.keys()[level_index]))
 	else:
+		_win_screen_text.text = "That's all folks! Thanks for playing!"
 		print_debug("No next level!")
 
 func _on_level_pressed(x) -> void:
