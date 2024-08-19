@@ -19,6 +19,7 @@ var levels = {
 
 var level_index = 0
 var oasis
+var yuzu
 
 func _ready() -> void:
 	addLevelsToSelect()
@@ -73,6 +74,7 @@ func load_level(level_scene_name):
 	_world.load_level(level_scene_name)
 	get_oasis_node_and_setup_signal()
 	get_cactus_node_and_setup_signal()
+	get_yuzu_node_and_setup_signal()
 	change_main_menu_state(MAIN_MENU_STATES.GAME_PLAY)
 	
 func get_oasis_node_and_setup_signal():
@@ -98,6 +100,11 @@ func get_cactus_node_and_setup_signal():
 	if spike:
 		spike.youLose.connect(restartLevel)
 
+func get_yuzu_node_and_setup_signal():
+	var yuzu = searchAllNodesByName("Yuzu")
+	if yuzu:
+		yuzu.yuzu_get_signal.connect(_on_yuzu_get_signal)
+
 func restartLevel():
 	_lose_screen.show()
 	await get_tree().create_timer(0.5).timeout
@@ -113,6 +120,10 @@ func searchAllNodesByName(node_name) -> Node:
 		if node.name == node_name:
 			return node
 	return null
+	
+func _on_yuzu_get_signal():
+	_world.yuzu_count += 1
+	print_debug("yuzu acquired")
 
 func _on_next_level_signal():
 	print_debug("main menu - _on_next_level_signal")
