@@ -89,6 +89,27 @@ Press SPACE to continue."
 label_settings = SubResource("LabelSettings_yqc2o")
 horizontal_alignment = 1
 
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer3"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="CanvasLayer3/MarginContainer"]
+layout_mode = 2
+text = "Death has befallen you
+(...Restarting Level...)"
+label_settings = SubResource("LabelSettings_yqc2o")
+horizontal_alignment = 1
+
 [node name="UI_CanvasLayer" parent="." instance=ExtResource("5_c37c0")]
 visible = false
 

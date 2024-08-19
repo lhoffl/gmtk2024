@@ -14,6 +14,7 @@ var levels = {
 @onready var _canvas = $CanvasLayer
 @onready var _win_screen_canvas = $CanvasLayer2
 @onready var _gui_canvas = $UI_CanvasLayer
+@onready var _lose_screen = $CanvasLayer3
 
 var level_index = 0
 var oasis
@@ -22,6 +23,8 @@ func _ready() -> void:
 	addLevelsToSelect()
 
 func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		restartLevel()	
 	match main_menu_state:
 		MAIN_MENU_STATES.GAME_WIN:
 			if Input.is_action_just_pressed("player1_jump"):
@@ -95,7 +98,10 @@ func get_cactus_node_and_setup_signal():
 		spike.youLose.connect(restartLevel)
 
 func restartLevel():
-	print("RESTARTING LEVEL")
+	_lose_screen.show()
+	await get_tree().create_timer(0.5).timeout
+	
+	_lose_screen.hide()
 	load_level(levels.get(levels.keys()[level_index]))
 
 func searchAllNodesByName(node_name) -> Node:
