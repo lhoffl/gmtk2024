@@ -49,7 +49,7 @@ layout_mode = 0
 offset_top = 23.0
 offset_right = 57.0
 offset_bottom = 46.0
-text = "Yuzu Fruit Collected:"
+text = "Lost Yuzu Fruit Collected:"
 vertical_alignment = 1
 
 [node name="PointsValue" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
