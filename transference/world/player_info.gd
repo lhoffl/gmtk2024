@@ -8,7 +8,7 @@ enum player_names {FENNEC_FOX, CAPYBARA}
 @export var player_name = player_names.FENNEC_FOX
 @export var mass = 1.0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_player_name_label.text = getPlayerName()
 	_mass_value_label.text = str(mass)
 	

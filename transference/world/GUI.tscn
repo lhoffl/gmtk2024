@@ -15,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_axlkv")]
@@ -32,22 +33,41 @@ theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 
 [node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(200, 25.365)
+custom_minimum_size = Vector2(233.79, 25.365)
 layout_mode = 2
 texture = ExtResource("1_ijgwc")
 
 [node name="PointsLabel" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
 layout_mode = 0
 offset_right = 57.0
-offset_bottom = 48.0
+offset_bottom = 23.0
 text = "Points: "
+vertical_alignment = 1
+
+[node name="YuzuLabel" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
+layout_mode = 0
+offset_top = 23.0
+offset_right = 57.0
+offset_bottom = 46.0
+text = "Yuzu Fruit Collected:"
 vertical_alignment = 1
 
 [node name="PointsValue" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
 layout_mode = 0
 offset_left = 56.0
 offset_top = 1.0
-offset_right = 198.0
+offset_right = 233.0
+offset_bottom = 24.0
+text = "0
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="YuzuValue" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 24.0
+offset_right = 233.0
 offset_bottom = 47.0
 text = "0
 "

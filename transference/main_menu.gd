@@ -12,6 +12,7 @@ var levels = {
 @onready var _level_select_menu = $CanvasLayer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer
 @onready var _canvas = $CanvasLayer
 @onready var _win_screen_canvas = $CanvasLayer2
+@onready var _gui_canvas = $UI_CanvasLayer
 
 var level_index = 0
 var oasis
@@ -19,9 +20,17 @@ var oasis
 func _ready() -> void:
 	addLevelsToSelect()
 
-func _process(_delta):
-	if main_menu_state == MAIN_MENU_STATES.GAME_WIN and Input.is_action_just_pressed("player1_jump"):
-		next_level()
+func _process(delta):
+	match main_menu_state:
+		MAIN_MENU_STATES.GAME_WIN:
+			if Input.is_action_just_pressed("player1_jump"):
+				next_level()
+		MAIN_MENU_STATES.GAME_PLAY:
+			_world.time_score -= delta
+			_gui_canvas.update_points_label(int(_world.time_score))
+			_gui_canvas.update_yuzu_label(_world.yuzu_count)
+		_:
+			pass
 
 func addLevelsToSelect():
 	for x in levels:
@@ -32,6 +41,8 @@ func addLevelsToSelect():
 			
 func _on_start_new_game_pressed() -> void:
 	level_index = 0
+	_world.time_score = levels.size() * 1000
+	_world.yuzu_count = 0
 	print_debug("Start New Game Pressed - Scene " + levels.get(levels.keys()[level_index]))
 	load_level(levels.get(levels.keys()[level_index]))
 
@@ -45,6 +56,8 @@ func next_level():
 
 func _on_level_pressed(x) -> void:
 	level_index = levels.keys().find(x)
+	_world.time_score = (levels.size() - level_index) * 1000
+	_world.yuzu_count = 0
 	load_level(level_index)
 	
 func load_level(level_scene_name):
@@ -96,10 +109,13 @@ func change_main_menu_state(new_state : MAIN_MENU_STATES):
 			main_menu_state = MAIN_MENU_STATES.MAIN_MENU
 			_world.hide()
 			_canvas.show()
+			_win_screen_canvas.hide()
+			_gui_canvas.hide()
 		MAIN_MENU_STATES.PAUSE_MENU:
 			main_menu_state = MAIN_MENU_STATES.PAUSE_MENU
 		MAIN_MENU_STATES.GAME_PLAY:
 			main_menu_state = MAIN_MENU_STATES.GAME_PLAY
+			_gui_canvas.show()
 		MAIN_MENU_STATES.GAME_WIN:
 			main_menu_state = MAIN_MENU_STATES.GAME_WIN
 			_world.players["1"].player.win_level()
