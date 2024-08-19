@@ -21,7 +21,11 @@
 [ext_resource type="Texture2D" uid="uid://be3thf87ifwg3" path="res://transference/environment/Cloud/shift_tut9.png" id="16_hkeso"]
 [ext_resource type="Texture2D" uid="uid://biayx6ccukgba" path="res://transference/environment/Cloud/shift_tut10.png" id="17_qrmpl"]
 [ext_resource type="Script" path="res://transference/Levels/animated_sprite_2d.gd" id="18_wrc2d"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://ct3m64g5qtagh" path="res://transference/oasis.tscn" id="22_jrmue"]
+=======
+[ext_resource type="PackedScene" uid="uid://cs5ss46mpk88c" path="res://transference/oasis.tscn" id="22_jrmue"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_gftqb")
@@ -184,4 +188,8 @@ sprite_frames = SubResource("SpriteFrames_bbme3")
 script = ExtResource("18_wrc2d")
 
 [node name="Oasis" parent="." instance=ExtResource("22_jrmue")]
+<<<<<<< Updated upstream
 position = Vector2(829, 498)
+=======
+position = Vector2(834, 498)
+>>>>>>> Stashed changes

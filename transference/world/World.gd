@@ -1,7 +1,7 @@
 class_name CapyWorld
 extends Node2D
 
-@export var level_num = 0
+var level_num = 0
 @onready var viewport = $VBoxContainer/SubViewportContainer/SubViewport
 var level_instance
 var oasis
@@ -39,8 +39,12 @@ func load_level(level_name):
 			node.player.get_node_or_null("CharacterBody2D").add_child(remote_transform)
 			
 		oasis = $VBoxContainer/SubViewportContainer/SubViewport/CurrentLevel/Oasis
+<<<<<<< Updated upstream
 		oasis.nextLevelSignal.connect(load_level)
 
+=======
+		var oasisArea = oasis.get_child(0) as Area2D
+>>>>>>> Stashed changes
 	else:
 		print("RUH ROH")
 		
