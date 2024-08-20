@@ -1,13 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvjng8x4pch1t"]
+[gd_scene load_steps=8 format=3 uid="uid://cvjng8x4pch1t"]
 
 [ext_resource type="PackedScene" uid="uid://d38vjedwlwn0i" path="res://transference/world/player_info_gui_element.tscn" id="1_axlkv"]
 [ext_resource type="Texture2D" uid="uid://d1l17ijgwk81c" path="res://transference/characters/players/sprites/bg.png" id="1_ijgwc"]
 [ext_resource type="Script" path="res://transference/world/gui_controller.gd" id="1_v5bh8"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_70bmh"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mokut"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nbwdt"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_01d5n"]
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
 [node name="UI_CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_v5bh8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+texture_filter = 4
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,10 +55,12 @@ layout_mode = 2
 texture = ExtResource("1_ijgwc")
 
 [node name="PointsLabel" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
+texture_filter = 2
 layout_mode = 0
 offset_right = 57.0
 offset_bottom = 23.0
 text = "Points: "
+label_settings = SubResource("LabelSettings_70bmh")
 vertical_alignment = 1
 
 [node name="YuzuLabel" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
@@ -50,6 +69,7 @@ offset_top = 23.0
 offset_right = 57.0
 offset_bottom = 46.0
 text = "Lost Yuzu Fruit Collected:"
+label_settings = SubResource("LabelSettings_mokut")
 vertical_alignment = 1
 
 [node name="PointsValue" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
@@ -60,16 +80,18 @@ offset_right = 233.0
 offset_bottom = 24.0
 text = "0
 "
+label_settings = SubResource("LabelSettings_nbwdt")
 horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="YuzuValue" type="Label" parent="HBoxContainer/MarginContainer/NinePatchRect"]
 layout_mode = 0
-offset_left = 159.0
+offset_left = 195.0
 offset_top = 24.0
 offset_right = 233.0
 offset_bottom = 47.0
 text = "0
 "
+label_settings = SubResource("LabelSettings_01d5n")
 horizontal_alignment = 2
 vertical_alignment = 1

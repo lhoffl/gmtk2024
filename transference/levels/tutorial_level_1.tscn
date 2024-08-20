@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dap1xaqa2jbyw"]
+[gd_scene load_steps=26 format=4 uid="uid://dap1xaqa2jbyw"]
 
 [ext_resource type="PackedScene" uid="uid://cmco0r6j6pdwr" path="res://transference/characters/players/player.tscn" id="1_0xeiw"]
 [ext_resource type="Texture2D" uid="uid://d0gtuoxtkjvut" path="res://transference/characters/players/sprites/sand_tileset.png" id="2_lvjeb"]
@@ -10,6 +10,16 @@
 [ext_resource type="PackedScene" uid="uid://ct3m64g5qtagh" path="res://transference/oasis.tscn" id="9_gs7mo"]
 [ext_resource type="Script" path="res://transference/Levels/animated_sprite_2d.gd" id="9_w1xex"]
 [ext_resource type="PackedScene" uid="uid://dx2w53x2mtgvt" path="res://transference/environment/Spike/spike.tscn" id="10_uktw0"]
+[ext_resource type="Texture2D" uid="uid://d3kpyjnvkbvd2" path="res://transference/environment/Cloud/shift_tut1.png" id="11_iiadt"]
+[ext_resource type="Texture2D" uid="uid://brdxf1sn6tslr" path="res://transference/environment/Cloud/shift_tut2.png" id="12_fg5ph"]
+[ext_resource type="Texture2D" uid="uid://brbvvf0lk0uyr" path="res://transference/environment/Cloud/shift_tut3.png" id="13_t207h"]
+[ext_resource type="Texture2D" uid="uid://d13wygml4b7ui" path="res://transference/environment/Cloud/shift_tut4.png" id="14_c0nre"]
+[ext_resource type="Texture2D" uid="uid://b6migeifh13q6" path="res://transference/environment/Cloud/shift_tut5.png" id="15_skc3w"]
+[ext_resource type="Texture2D" uid="uid://dbqkfdn7oe3ss" path="res://transference/environment/Cloud/shift_tut6.png" id="16_dsqkq"]
+[ext_resource type="Texture2D" uid="uid://cvbmwqsyg1h6h" path="res://transference/environment/Cloud/shift_tut7.png" id="17_mvnv2"]
+[ext_resource type="Texture2D" uid="uid://dvru8fxc6lktr" path="res://transference/environment/Cloud/shift_tut8.png" id="18_2mrt0"]
+[ext_resource type="Texture2D" uid="uid://be3thf87ifwg3" path="res://transference/environment/Cloud/shift_tut9.png" id="19_hmedw"]
+[ext_resource type="Texture2D" uid="uid://biayx6ccukgba" path="res://transference/environment/Cloud/shift_tut10.png" id="20_pwtt0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hmsf"]
 texture = ExtResource("2_lvjeb")
@@ -68,6 +78,48 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p1q0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_iiadt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fg5ph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_t207h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_c0nre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_skc3w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dsqkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mvnv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2mrt0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hmedw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pwtt0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dbwat"]
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
 [node name="DebugLevel" type="Node2D"]
 
 [node name="Player_1" parent="." instance=ExtResource("1_0xeiw")]
@@ -97,3 +149,42 @@ position = Vector2(867, 525)
 
 [node name="Spike" parent="." instance=ExtResource("10_uktw0")]
 position = Vector2(386, 536)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(186, 500)
+sprite_frames = SubResource("SpriteFrames_7p1q0")
+script = ExtResource("9_w1xex")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+offset_left = 63.0
+offset_top = 221.0
+offset_right = 103.0
+offset_bottom = 244.0
+text = "            /|\\
+        [space]
+<- [A]          [D] ->"
+label_settings = SubResource("LabelSettings_dbwat")
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 2
+offset_left = 891.0
+offset_top = 499.0
+offset_right = 991.0
+offset_bottom = 548.0
+text = "<- Meet Here
+to Beat Level"
+label_settings = SubResource("LabelSettings_dbwat")
+
+[node name="Label3" type="Label" parent="."]
+texture_filter = 2
+offset_left = 600.0
+offset_top = 495.0
+offset_right = 750.0
+offset_bottom = 570.0
+text = "Collect lost yuzu
+for additional ------>
+challenge"
+label_settings = SubResource("LabelSettings_dbwat")
+horizontal_alignment = 1
